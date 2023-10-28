@@ -9,7 +9,7 @@ protected:
     int xp_gain;
     int yang_drop;
 public:
-    friend std::ostream& operator<<(std::ostream&,Monsters&);
+    friend std::ostream& operator<<(std::ostream&,const Monsters&);
     Monsters() : damage(0), hp(0), name("NULL"), region("NULL"), xp_gain(0) , yang_drop(0) {}
     ~Monsters()=default;
     Monsters(const Monsters &copie){
@@ -53,7 +53,7 @@ public:
     }
 };
 
-std::ostream &operator<<(std::ostream &out,Monsters& m){
+std::ostream &operator<<(std::ostream &out,const Monsters& m){
     out<<m.damage<<" "<<m.hp<<" "<<m.name<<" "<<m.region<<" "<<m.xp_gain<<" "<<m.yang_drop;
     return out;
 }
