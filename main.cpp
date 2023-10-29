@@ -1,4 +1,216 @@
 #include <iostream>
+#include<string>
+
+class Item{
+
+protected:
+    std::string name;
+    bool givesheal;
+    int damage;
+    int pluslevel;
+    int levelreq;
+    int heal_gain;
+    int stacksize;
+    int shop_price;
+
+
+
+public:
+    Item(){
+        this->name="NULL";
+        this->givesheal=false;
+        this->damage=0;
+        this->pluslevel=0;
+        this->levelreq=0;
+        this->heal_gain=0;
+        this->stacksize=0;
+        this->shop_price=0;
+
+    }
+    ~Item()=default;
+
+    friend std::ostream& operator<<(std::ostream& out, const Item& item);
+
+    bool getgivesHeal(){
+        return this->givesheal;
+    }
+    int getlevelreq(){
+        return this->levelreq;
+    }
+    int getdamage(){
+        return this->damage;
+    }
+    std::string getname(){
+        return this->name;
+    }
+    int getshop_price(){
+        return this->shop_price;
+    }
+    int gethealgain(){
+        return this->heal_gain;
+    }
+    int getstacksize(){
+        return this->stacksize;
+    }
+
+};
+
+std::ostream& operator<<(std::ostream& out, const Item& item) {
+    out << "Detaliile acestui item:" << std::endl;
+    out << "Nume: " << item.name << std::endl;
+    if(item.givesheal)
+        out << "Heal oferit de 1x "<< item.name << "este + " << item.heal_gain << "HP";
+    if(item.damage)
+        out << "Damage: " << item.damage << std::endl;
+    if(!item.givesheal)
+        out << "Plus Level: " << item.pluslevel << std::endl;
+    out << "Level necesar pentru achizitionare: " << item.levelreq << std::endl;
+    out << "Pret x" << item.stacksize << ": " << item.shop_price << std::endl;
+    return out;
+}
+
+class Sabie : public Item {
+
+private:
+
+public:
+    Sabie(){
+        this->name="Sabie";
+        this->givesheal=false;
+        this->damage=3;
+        this->pluslevel=0;
+        this->levelreq=1;
+        this->shop_price=10;
+        this->stacksize=1;
+        this->heal_gain=0;
+    }
+
+};
+
+class Iatagan : public Item {
+
+private:
+
+public:
+    Iatagan(){
+        this->name="Iatagan";
+        this->givesheal=false;
+        this->damage=5;
+        this->pluslevel=0;
+        this->levelreq=3;
+        this->shop_price=50;
+        this->stacksize=1;
+        this->heal_gain=0;
+    }
+
+};
+
+class Sabie_argint : public Item {
+
+private:
+
+public:
+    Sabie_argint(){
+        this->name="Sabie de argint";
+        this->givesheal=false;
+        this->damage=10;
+        this->pluslevel=0;
+        this->levelreq=10;
+        this->shop_price=150;
+        this->stacksize=1;
+        this->heal_gain=0;
+    }
+
+};
+
+class FMS : public Item {
+
+private:
+
+public:
+    FMS(){
+        this->name="Sabie luna plina";
+        this->givesheal=false;
+        this->damage=15;
+        this->pluslevel=0;
+        this->levelreq=17;
+        this->shop_price=300;
+        this->stacksize=1;
+        this->heal_gain=0;
+    }
+
+};
+
+class HP_small : public Item {
+
+private:
+
+public:
+    HP_small(){
+        this->name="Potiune HP mica";
+        this->givesheal=true;
+        this->damage=0;
+        this->pluslevel=0;
+        this->levelreq=1;
+        this->shop_price=20;
+        this->stacksize=10;
+        this->heal_gain=3;
+    }
+
+};
+
+class HP_medium : public Item {
+
+private:
+
+public:
+    HP_medium(){
+        this->name="Potiune HP medie";
+        this->givesheal=true;
+        this->damage=0;
+        this->pluslevel=0;
+        this->levelreq=1;
+        this->shop_price=50;
+        this->stacksize=5;
+        this->heal_gain=10;
+    }
+
+};
+
+
+class HP_big : public Item {
+
+private:
+
+public:
+    HP_big(){
+        this->name="Potiune HP mare";
+        this->givesheal=true;
+        this->damage=0;
+        this->pluslevel=0;
+        this->levelreq=1;
+        this->shop_price=100;
+        this->stacksize=1;
+        this->heal_gain=100;
+    }
+
+};
+
+
+class Shop{
+private:
+    Sabie sa;
+    Iatagan ia;
+    Sabie_argint sa_a;
+    FMS fms;
+public:
+    friend std::ostream& operator<<(std::ostream&,Shop&);
+};
+std::ostream &operator<<(std::ostream &out,Shop& sh){
+    out<<"1. Sabie de argint"<< std::endl <<"2. Iatagan" << std::endl <<"3. Sabie de argint" << std::endl<<"4. Sabie luna plina";
+    return out;
+}
+
 
 class Monsters{
 protected:
@@ -160,5 +372,10 @@ int main() {
 c.takedamage(2);
 std::cout<<std::endl;
 std::cout<<c.gethp();
+Shop s;
+std::cout<<s;
+std::cout<<std::endl;
+Item P;
+std::cout<<P;
 return 0;
 }
