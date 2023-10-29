@@ -377,5 +377,13 @@ std::cout<<s;
 std::cout<<std::endl;
 Item P;
 std::cout<<P;
+P.getgivesHeal();
+P.gethealgain();
+P.getlevelreq();
+P.getshop_price();
+P.getname();
+P.getdamage();
+P.getstacksize();
+P.getlevelreq();
 return 0;
 }
