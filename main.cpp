@@ -204,9 +204,9 @@ private:
     Sabie_argint sa_a;
     FMS fms;
 public:
-    friend std::ostream& operator<<(std::ostream&,Shop&);
+    friend std::ostream& operator<<(std::ostream&);
 };
-std::ostream &operator<<(std::ostream &out,Shop& sh){
+std::ostream &operator<<(std::ostream &out){
     out<<"1. Sabie de argint"<< std::endl <<"2. Iatagan" << std::endl <<"3. Sabie de argint" << std::endl<<"4. Sabie luna plina";
     return out;
 }
