@@ -204,10 +204,10 @@ private:
     Sabie_argint sa_a;
     FMS fms;
 public:
-    friend std::ostream& operator<<(std::ostream&);
+    friend std::ostream& operator<<(std::ostream&,const Shop&);
 };
-std::ostream &operator<<(std::ostream &out){
-    out<<"1. Sabie de argint"<< std::endl <<"2. Iatagan" << std::endl <<"3. Sabie de argint" << std::endl<<"4. Sabie luna plina";
+std::ostream &operator<<(std::ostream &out,const Shop& sh){
+    out<<"1. "<<sh.fms.getname()<< std::endl <<"2. "<<sh.ia.getname() << std::endl <<"3. "<<sh.sa_a.getname() << std::endl<<"4. "<<sh.fms.getname();
     return out;
 }
 
