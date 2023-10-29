@@ -13,8 +13,6 @@ protected:
     int stacksize;
     int shop_price;
 
-
-
 public:
     Item(){
         this->name="NULL";
@@ -345,6 +343,19 @@ public:
    }
 };
 
+class Maps{
+private:
+    std::string name;
+public:
+    Maps()=default;
+    ~Maps()=default;
+    friend std::ostream &operator<<(std::ostream&,const Maps&);
+};
+
+std::ostream &operator<<(std::ostream &out,const Maps& m){
+    out<<m.name;
+    return out;
+}
 
 
 int main() {
@@ -369,5 +380,8 @@ P.getname();
 P.getdamage();
 P.getstacksize();
 P.getlevelreq();
+Maps y;
+std::cout<<std::endl;
+std::cout<<y;
 return 0;
 }
