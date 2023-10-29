@@ -197,20 +197,6 @@ public:
 };
 
 
-class Shop{
-private:
-    Sabie sa;
-    Iatagan ia;
-    Sabie_argint sa_a;
-    FMS fms;
-public:
-    friend std::ostream& operator<<(std::ostream&,const Shop&);
-};
-std::ostream &operator<<(std::ostream &out,const Shop& sh){
-    out<<"1. "<<sh.fms.getname()<< std::endl <<"2. "<<sh.ia.getname() << std::endl <<"3. "<<sh.sa_a.getname() << std::endl<<"4. "<<sh.fms.getname();
-    return out;
-}
-
 
 class Monsters{
 protected:
@@ -372,8 +358,6 @@ int main() {
 c.takedamage(2);
 std::cout<<std::endl;
 std::cout<<c.gethp();
-Shop s;
-std::cout<<s;
 std::cout<<std::endl;
 Item P;
 std::cout<<P;
