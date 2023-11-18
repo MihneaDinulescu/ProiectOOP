@@ -162,6 +162,10 @@
                 }
                 break;
             }
+            default: {
+                std::cout << "Unexpected PlusLevel value!\n";
+                return false;  // You may want to return a default value or handle this case appropriately
+            }
 
         }
     }
