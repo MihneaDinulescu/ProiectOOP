@@ -13,7 +13,7 @@ int read(int bottom, int top){
         std::getline(std::cin, input);
 
         try{
-            int digit = stoi(input);
+            int digit = std::stoi(input);
             if(digit >= bottom && digit <= top){
                 return digit;
             }
