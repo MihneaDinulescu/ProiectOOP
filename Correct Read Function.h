@@ -5,6 +5,7 @@
 #ifndef OOP_CORRECT_READ_FUNCTION_H
 #define OOP_CORRECT_READ_FUNCTION_H
 
+#include <string>
 
 int read(int bottom, int top);
 unsigned long read2(unsigned int bottom ,unsigned long top);
