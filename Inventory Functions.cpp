@@ -61,8 +61,8 @@ void restack(Player *player){
 }
 
 void Levelfun(Player *player){
-    int op;
     while (true) {
+        int op;
         std::cout<<"1. Display your level\n2. Display your XP\n3. Level up\n4. Exit\n";
         op=read(1,4);
         switch (op){
@@ -94,8 +94,8 @@ void Levelfun(Player *player){
 }
 
 void inventoryfun(Player *player){
-    int op;
     while (true) {
+        int op;
         std::cout<<"1. Display inventory\n2. Display yang\n3. Equip sword\n4. Unequip sword\n5. Restack HP potions\n6. Exit\n";
         op=read(1,6);
         switch (op){

@@ -238,8 +238,8 @@ void sellitems(Player *player){
 
 void ShopFun(Player* player) {
 
-    int op;
     while (true) {
+        int op;
         std::cout << "1. Display items from shop\n2. See details about a specific item\n3. Buy items\n4. Sell items\n5. Exit\n";
         op= read(1,5);
         switch (op) {
