@@ -29,7 +29,7 @@ unsigned long read2(int bottom, unsigned long top){
         std::getline(std::cin, input);
 
         try{
-            int digit = stoi(input);
+            unsigned long digit = stoi(input);
             if(digit >= bottom && digit <= top){
                 return digit;
             }
