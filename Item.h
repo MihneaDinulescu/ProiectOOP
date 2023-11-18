@@ -28,21 +28,21 @@ public:
 
     void IncrementPluslevel();
 
-    [[nodiscard]] bool getgivesHeal() const;
+    bool getgivesHeal() const;
 
-    [[nodiscard]] int getpluslevel() const;
+    int getpluslevel() const;
 
-    [[nodiscard]] int getlevelreq() const;
+    int getlevelreq() const;
 
-    [[nodiscard]] int getdamage() const;
+    int getdamage() const;
 
     std::string getname();
 
-    [[nodiscard]] int getshop_price() const;
+    int getshop_price() const;
 
-    [[nodiscard]] int gethealgain() const;
+    int gethealgain() const;
 
-    [[nodiscard]] int getstacksize() const;
+    int getstacksize() const;
 
 };
 

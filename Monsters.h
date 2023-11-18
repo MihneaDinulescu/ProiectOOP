@@ -28,17 +28,17 @@ public:
 
     virtual void attack(Player *player);
 
-    [[nodiscard]] int getXpGain() const;
+    int getXpGain() const;
 
-    [[nodiscard]] int getdamage() const;
+    int getdamage() const;
 
-    [[nodiscard]] int gethp() const;
+    int gethp() const;
 
     std::string getname();
 
     void takedamage(int dmg);
 
-    [[nodiscard]] double getYang_drop() const;
+    double getYang_drop() const;
 };
 
 #endif //OOP_MONSTERS_H

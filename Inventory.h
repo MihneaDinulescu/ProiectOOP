@@ -21,7 +21,7 @@ public:
 
     Inventory();
 
-    [[nodiscard]] int getInventorySize() const;
+   int getInventorySize() const;
 
     std::vector<InventorySlot*> getInventorySpace();
 

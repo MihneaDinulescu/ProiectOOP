@@ -25,7 +25,7 @@ public:
     Item* getCurentItem();
 
 
-    [[nodiscard]] bool isEmpty() const;
+    bool isEmpty() const;
 
     std::string getItemName();
 
@@ -37,7 +37,7 @@ public:
 
     void emptyQuantity();
 
-    [[nodiscard]] int getQuantity() const;
+    int getQuantity() const;
 
     void setQuantity(int cnt);
 

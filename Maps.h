@@ -17,7 +17,7 @@ public:
 
     virtual ~Maps();
 
-    [[nodiscard]] int getlevelReq() const;
+    int getlevelReq() const;
 
     std::string getname();
 };

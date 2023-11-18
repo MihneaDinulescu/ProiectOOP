@@ -29,7 +29,7 @@ public:
 
     Player& operator=(const Player& other);
 
-    [[nodiscard]] int getXp() const;
+    int getXp() const;
 
     void addXp(int _xp);
 
@@ -37,7 +37,7 @@ public:
 
     Item * getSword();
 
-    [[nodiscard]] int getlevel() const;
+    int getlevel() const;
 
     void IncrementLevel();
 
@@ -51,23 +51,23 @@ public:
 
     void healplayer(int add);
 
-    [[nodiscard]] double getYang() const;
+    double getYang() const;
 
     void difYang(double sum);
 
     void sumYang(double sum);
 
-    [[nodiscard]] int gethp() const;
+    int gethp() const;
 
     void sethp(int HP);
 
-    [[nodiscard]] bool isdead() const;
+    bool isdead() const;
 
     Inventory * getInventory();
 
     void endGame();
 
-    [[nodiscard]] int getdamage() const;
+    int getdamage() const;
 
     void takedamage(int tkdmg);
 
