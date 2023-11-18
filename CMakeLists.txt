@@ -91,6 +91,70 @@ endfunction()
 
 # NOTE: update executable name in .github/workflows/cmake.yml:25 when changing name here
 add_executable(${PROJECT_NAME} main.cpp
+        Item.h
+        Item.cpp
+        Sword.h
+        Sword.cpp
+        CrescentSword.h
+        CrescentSword.cpp
+        SilverSword.h
+        SilverSword.cpp
+        FullMoonSword.h
+        FullMoonSword.cpp
+        HPsmall.cpp
+        HPsmall.h
+        HPmedium.cpp
+        HPmedium.h
+        HPbig.cpp
+        HPbig.h
+        InventorySlot.h
+        InventorySlot.cpp
+        Inventory.h
+        Inventory.cpp
+        Maps.cpp
+        Maps.h
+        Player.cpp
+        Player.h
+        BlackSmith.cpp
+        BlackSmith.h
+        Joan.cpp
+        Joan.h
+        Bakra.cpp
+        Bakra.h
+        Seungryong.cpp
+        Seungryong.h
+        Monsters.cpp
+        Monsters.h
+        WildDog.cpp
+        WildDog.h
+        Wolf.h
+        Wolf.cpp
+        Boar.h
+        Boar.cpp
+        Soldier.cpp
+        Soldier.h
+        Tiger.cpp
+        Tiger.h
+        Ork.cpp
+        Ork.h
+        DarkFanatic.cpp
+        DarkFanatic.h
+        Shop.cpp
+        Shop.h
+        "Health Functions.h"
+        "Health Functions.cpp"
+        "Shop Functions.cpp"
+        "Shop Functions.h"
+        "Inventory Functions.h"
+        "Inventory Functions.cpp"
+        Fight.h
+        Fight.cpp
+        "Map Functions.h"
+        "Map Functions.cpp"
+        "Teleport Functions.cpp"
+        "Teleport Functions.h"
+        "Decision Function.cpp"
+        "Decision Function.h"
 )
 
 ###############################################################################
