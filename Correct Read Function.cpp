@@ -23,7 +23,7 @@ int read(int bottom, int top){
     }
 }
 
-unsigned long read2(int bottom, unsigned long top){
+unsigned long read2(unsigned int bottom, unsigned long top){
     while(true){
         std::string input;
         std::getline(std::cin, input);
