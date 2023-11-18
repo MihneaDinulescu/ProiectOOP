@@ -4,8 +4,6 @@
 
 #include<iostream>
 #include "Correct Read Function.h"
-
-#include <iostream>
 #include <limits>
 #include <string>
 
