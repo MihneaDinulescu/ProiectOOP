@@ -7,38 +7,29 @@
 #include <limits>
 #include <string>
 
-int read(int bottom, int top) {
-    int result = 0;
-
-    while (true) {
+int read(int bottom, int top){
+    while(true){
         std::string input;
-        if (!std::getline(std::cin, input)) {
-            break;
-        }
+        std::getline(std::cin, input);
 
-        try {
-            int digit = std::stoi(input);
-            if (digit >= bottom && digit <= top) {
-                result = digit;
-                break;
+        try{
+            int digit = stoi(input);
+            if(digit >= bottom && digit <= top){
+                return digit;
             }
-        } catch (const std::exception& e) {
+        } catch(const std::exception& e){
             e.what();
             std::cerr << "Invalid input. Please enter a valid number.\n";
         }
-    }
 
-    return result;
+    }
 }
 
 unsigned long read2(unsigned int bottom, unsigned long top) {
-    int result = 0;
+
     while (true) {
         std::string input;
-        if (!std::getline(std::cin, input)) {
-            break;
-        }
-
+        std::getline(std::cin, input);
         try {
             unsigned long digit = std::stoi(input);
             if (digit >= bottom && digit <= top) {
@@ -50,5 +41,4 @@ unsigned long read2(unsigned int bottom, unsigned long top) {
         }
     }
 
-    return result;
 }
