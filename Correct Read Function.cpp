@@ -5,36 +5,48 @@
 #include<iostream>
 #include "Correct Read Function.h"
 
-int read(int bottom, int top){
-    while(true){
-        std::string input;
-        std::getline(std::cin, input);
+#include <iostream>
+#include <limits>
+#include <string>
 
-        try{
-            int digit = stoi(input);
-            if(digit >= bottom && digit <= top){
-                return digit;
-            }
-        } catch(std::exception &e){
-            e.what();
+int read(int bottom, int top) {
+    while (true) {
+        std::string input;
+        if (!std::getline(std::cin, input)) {
+            break;
         }
 
+        try {
+            int digit = std::stoi(input);
+            if (digit >= bottom && digit <= top) {
+                return digit;
+            }
+        } catch (const std::exception& e) {
+            e.what();
+            std::cerr << "Invalid input. Please enter a valid number.\n";
+        }
     }
+
+    return 0;
 }
 
-unsigned long read2(unsigned int bottom, unsigned long top){
-    while(true){
+unsigned long read2(unsigned int bottom, unsigned long top) {
+    while (true) {
         std::string input;
-        std::getline(std::cin, input);
-
-        try{
-            unsigned long digit = stoi(input);
-            if(digit >= bottom && digit <= top){
-                return digit;
-            }
-        } catch(std::exception &e){
-            e.what();
+        if (!std::getline(std::cin, input)) {
+            break;
         }
 
+        try {
+            unsigned long digit = std::stoi(input);
+            if (digit >= bottom && digit <= top) {
+                return digit;
+            }
+        } catch (const std::exception& e) {
+            e.what();
+            std::cerr << "Invalid input. Please enter a valid number.\n";
+        }
     }
+
+    return 0;
 }
