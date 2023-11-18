@@ -13,6 +13,10 @@ private:
 public:
     explicit Joan(std::string _name = "", int _levelReq = 0);
 
+    Joan(const Joan& other);
+
+    Joan& operator=(const Joan& other);
+
     ~Joan() override;
 
     Blacksmith * getBlacksmith();

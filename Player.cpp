@@ -14,6 +14,41 @@ Player::Player() {
     this->currentMap = nullptr;
     this->xp=0;
 }
+
+Player::Player(const Player& other) {
+    // Copy simple members
+    this->hp = other.hp;
+    this->damage = other.damage;
+    this->xp = other.xp;
+    this->yang = other.yang;
+    this->level = other.level;
+
+    this->sword = (other.sword != nullptr) ? new Item(*(other.sword)) : nullptr;
+    this->inventory = (other.inventory != nullptr) ? new Inventory(*(other.inventory)) : nullptr;
+    this->currentMap = (other.currentMap != nullptr) ? new Maps(*(other.currentMap)) : nullptr;
+}
+
+Player& Player::operator=(const Player& other) {
+    if (this != &other) {
+
+        delete this->sword;
+        delete this->inventory;
+        delete this->currentMap;
+
+        this->hp = other.hp;
+        this->damage = other.damage;
+        this->xp = other.xp;
+        this->yang = other.yang;
+        this->level = other.level;
+
+        this->sword = (other.sword != nullptr) ? new Item(*(other.sword)) : nullptr;
+        this->inventory = (other.inventory != nullptr) ? new Inventory(*(other.inventory)) : nullptr;
+        this->currentMap = (other.currentMap != nullptr) ? new Maps(*(other.currentMap)) : nullptr;
+    }
+
+    return *this;
+}
+
 int Player::getXp() const{
     return this->xp;
 }

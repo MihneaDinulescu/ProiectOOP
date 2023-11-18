@@ -25,6 +25,10 @@ public:
 
     Player();
 
+    Player(const Player& other);
+
+    Player& operator=(const Player& other);
+
     [[nodiscard]] int getXp() const;
 
     void addXp(int _xp);
