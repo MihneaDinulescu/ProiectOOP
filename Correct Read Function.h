@@ -7,6 +7,6 @@
 
 
 int read(int bottom, int top);
-unsigned long read2(int bottom ,unsigned long top);
+unsigned long read2(unsigned int bottom ,unsigned long top);
 
 #endif //OOP_CORRECT_READ_FUNCTION_H
