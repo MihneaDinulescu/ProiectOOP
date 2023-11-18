@@ -18,7 +18,7 @@ int read(int bottom, int top){
                 return digit;
             }
         } catch(const std::exception& e){
-            std::cerr << "Exception caught: " << e.what() << std::endl;
+            (void)e.what();
             std::cerr << "Invalid input. Please enter a valid number.\n";
         }
 
@@ -36,7 +36,7 @@ unsigned long read2(unsigned int bottom, unsigned long top) {
                 return digit;
             }
         } catch (const std::exception& e) {
-            std::cerr << "Exception caught: " << e.what() << std::endl;
+            (void)e.what();
             std::cerr << "Invalid input. Please enter a valid number.\n";
         }
     }
