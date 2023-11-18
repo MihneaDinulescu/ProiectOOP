@@ -19,7 +19,7 @@
 class Fight {
 private:
 
-    std::vector<Monsters *> fightMobsVector;
+    std::vector<Monsters*> fightMobsVector;
     Player *fightPlayer;
 
     void generateMobs();

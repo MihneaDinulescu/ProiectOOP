@@ -62,7 +62,7 @@ Fight::~Fight(){
     }
 
     void Fight::printMobsWithHP() {
-        for (int i = 0; i < this->fightMobsVector.size(); i++) {
+        for (unsigned long i = 0; i < this->fightMobsVector.size(); i++) {
 
             std::cout << i + 1 << "." << this->fightMobsVector.at(i)->getname() << " has "
                       << this->fightMobsVector.at(i)->gethp() << " % HP\n";
@@ -151,7 +151,7 @@ Fight::~Fight(){
 
         std::cout << "Choose a monster to be hit\n";
 
-        int numberOfMob;
+        unsigned long numberOfMob;
 
         while (true) {
 
