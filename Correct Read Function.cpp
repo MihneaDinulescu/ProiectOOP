@@ -16,8 +16,7 @@ int read(int bottom, int top){
                 return digit;
             }
         } catch(std::exception &e){
-
-
+            e.what();
         }
 
     }
@@ -34,8 +33,7 @@ unsigned long read2(unsigned int bottom, unsigned long top){
                 return digit;
             }
         } catch(std::exception &e){
-
-
+            e.what();
         }
 
     }
