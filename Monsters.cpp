@@ -27,7 +27,7 @@ Monsters& Monsters::operator=(const Monsters& monster){
     }
 
 void Monsters::attack(Player *player) {
-
+    (void)player;
     }
 
     int Monsters::getXpGain() const{
