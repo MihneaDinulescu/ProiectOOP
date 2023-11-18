@@ -18,6 +18,7 @@ int read(int bottom, int top) {
                 throw std::invalid_argument("Invalid input");
             }
         } catch (const std::exception& e) {
+            (void)e.what();
             std::cerr << "Invalid input. Please enter a valid number.\n";
         }
     }
@@ -38,6 +39,7 @@ unsigned long read2(unsigned int bottom, unsigned long top) {
                 throw std::invalid_argument("Invalid input");
             }
         } catch (const std::exception& e) {
+            (void)e.what();
             std::cerr << "Invalid input. Please enter a valid number.\n";
         }
     }
