@@ -168,6 +168,7 @@
             }
 
         }
+        return false;
     }
 
     void Blacksmith::displayChances(){
