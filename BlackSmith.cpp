@@ -3,6 +3,7 @@
 //
 
 #include "BlackSmith.h"
+#include "Correct Read Function.h"
 
     Blacksmith::Blacksmith()=default;
 
@@ -189,7 +190,7 @@
             std::cout
                     << "1. See chances of success at upgrades\n2. Upgrade you sword\n3. Display your sword's plus level"
                     << "\n4. Exit\n";
-            std::cin >> op;
+            op = read(1,4);
             switch (op) {
                 case 1:
                     displayChances();
@@ -199,17 +200,17 @@
                         std::cout << "Your sword has the maximum Plus Level!\n";
                         break;
                     } else {
-                        std::cout << "If you are sure enter 'y' , else enter 'n'\n";
-                        char rsp;
-                        std::cin >> rsp;
+                        std::cout << "If you are sure enter '1' , else enter '0'\n";
+                        int rsp;
+                        rsp=read(0,1);
                         switch (rsp) {
-                            case 'y': {
+                            case 0: {
                                 if (UpgradePlusLevel(player->getSword(), player))
                                     break;
                                 else
                                     return;
                             }
-                            case 'n':
+                            case 1:
                                 break;
                             default: {
                                 std::cout << "Invalid option\n";

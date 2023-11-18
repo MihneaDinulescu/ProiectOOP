@@ -5,6 +5,7 @@
 #include "Map Functions.h"
 #include "Fight.h"
 #include "Joan.h"
+#include "Correct Read Function.h"
 
 void Mapfun(Player *player) {
     Fight *currentFight;
@@ -16,7 +17,7 @@ void Mapfun(Player *player) {
 
         if (player->getcurrentMap()->getname() == "Joan") {
             std::cout << "3. Upgrade Plus Level of your sword at Blacksmith\n";
-            std::cin >> op;
+            op=read(1,3);
             switch (op) {
                 case 1: {
                     currentFight = new Fight(player);
@@ -39,7 +40,7 @@ void Mapfun(Player *player) {
                     std::cout << "Invalid Option!\n";
             }
         } else {
-            std::cin >> op;
+            op= read(1,2);
             switch (op) {
                 case 1: {
                     currentFight = new Fight(player);

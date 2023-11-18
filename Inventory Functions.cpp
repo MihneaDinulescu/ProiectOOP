@@ -3,6 +3,7 @@
 //
 
 #include "Inventory Functions.h"
+#include "Correct Read Function.h"
 
 void equipsword(Player *player){
     int op;
@@ -13,7 +14,7 @@ void equipsword(Player *player){
         std::cout<<"You already have equiped a sword\n";
         return;}
     std::cout<<"Enter the number of the sword you want to equip :";
-    std::cin>> x;
+    x=read(1,30);
     int counter=0;
     for (int i = 0; i < player->getInventory()->getInventorySize(); i++) {
         if(player->getInventory()->getInventorySpace().at(i)->getQuantity() > 0 && player->getInventory()->getInventorySpace().at(i)->getCurentItem()->getdamage() > 0)
@@ -63,7 +64,7 @@ void Levelfun(Player *player){
     int op;
     while (true) {
         std::cout<<"1. Display your level\n2. Display your XP\n3. Level up\n4. Exit\n";
-        std::cin >> op;
+        op=read(1,4);
         switch (op){
             case 1:
                 std::cout<<"You have level " << player->getlevel()<<"\n";
@@ -96,7 +97,7 @@ void inventoryfun(Player *player){
     int op;
     while (true) {
         std::cout<<"1. Display inventory\n2. Display yang\n3. Equip sword\n4. Unequip sword\n5. Restack HP potions\n6. Exit\n";
-        std::cin >> op;
+        op=read(1,6);
         switch (op){
             case 1:
                 player->getInventory()->displayInventory();

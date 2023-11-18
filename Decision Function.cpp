@@ -7,6 +7,7 @@
 #include "Inventory Functions.h"
 #include "Health Functions.h"
 #include "Shop Functions.h"
+#include "Correct Read Function.h"
 
 void decisionFunction(Player *player, const std::vector<Maps*>& maps) {
 
@@ -14,9 +15,7 @@ void decisionFunction(Player *player, const std::vector<Maps*>& maps) {
 
         std::cout << "1. Teleport \n2. Inventory \n3. Health \n4. Shop \n5. Level\n6. Exit\n";
 
-        int decision;
-        std::cin >> decision;
-
+        int decision = read(1,6);
         switch (decision) {
             case 1:
                 TeleportFun(player, maps);

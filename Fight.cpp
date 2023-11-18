@@ -3,6 +3,7 @@
 //
 
 #include "Fight.h"
+#include "Correct Read Function.h"
 
     void Fight::generateMobs() {
 
@@ -108,9 +109,7 @@ Fight::~Fight(){
         displayhp(fightPlayer);
         std::cout << "1. Hit\n";
 
-
-        int decission;
-        std::cin >> decission;
+        int decission = read(1,1);
 
         switch (decission) {
             case 1:
@@ -156,7 +155,7 @@ Fight::~Fight(){
         while (true) {
 
             this->printMobsWithHP();
-            std::cin >> numberOfMob;
+            numberOfMob=read2(1,fightMobsVector.size());
 
             if ((this->fightMobsVector.size() >= numberOfMob) && numberOfMob >= 1) {
 

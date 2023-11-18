@@ -3,7 +3,7 @@
 //
 
 #include "Teleport Functions.h"
-
+#include "Correct Read Function.h"
 void TeleportFun(Player *player, std::vector<Maps *> maps) {
     int op;
     std::cout << "Enter the number of the Map where you want to teleport\n";
@@ -12,7 +12,7 @@ void TeleportFun(Player *player, std::vector<Maps *> maps) {
                   << maps.at(i)->getlevelReq() << ")\n";
     }
     std::cout << "If you want to leave teleporter enter '0'\n";
-    std::cin >> op;
+    op= read(1,3);
     if (op == 0) { return; }
     switch (op) {
         case 1: {

@@ -3,6 +3,7 @@
 //
 
 #include "Health Functions.h"
+#include "Correct Read Function.h"
 
 void displayhp(Player *player){
     std::cout<<"HEALTH BAR : ";
@@ -35,7 +36,7 @@ void regenhp(Player *player) {
     if (cnt == 0) {std::cout<<"You do not have any HP potions\n";  return; }
     int nrop;
     std::cout << "Enter the number of the item with which you want to heal :";
-    std::cin >> nrop;
+    nrop=read(1,30);
     int nr=0;
     for (int i = 0; i < player->getInventory()->getInventorySize(); i++) {
 

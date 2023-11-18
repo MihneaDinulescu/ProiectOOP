@@ -3,6 +3,7 @@
 //
 
 #include "Shop Functions.h"
+#include "Correct Read Function.h"
 
 void displayitems() {
     Shop sh;
@@ -14,7 +15,7 @@ void detailsitems(){
     displayitems();
     std::cout << "Enter the number of the specific item for more details : \n";
     int x;
-    std::cin>>x;
+    x = read(1,7);
     Shop sh;
     switch(x)
     {
@@ -52,7 +53,7 @@ void buyitems(Player *player){
     std::cout << "Enter the number of the specific item which you want to buy : ";
     int x;
     Shop sh;
-    std::cin>>x;
+    x=read(1,7);
     std::cout<<std::endl;
     if(player->getInventory()->isFull())
     {
@@ -218,7 +219,7 @@ void sellitems(Player *player){
     std::cout<< "If you don't want to sell anything , enter '0'\n";
     std::cout << "Enter the number of the item from your inventory which you want to sell : ";
     int op;
-    std::cin>>op;
+    op= read(1,30);
     std::cout<<"\n";
     if(op==0) { return;}
     if(op<0 || op > player->getInventory()->getInventorySize()) {std::cout<<"Invalid option\n"; return;}
@@ -240,7 +241,7 @@ void ShopFun(Player* player) {
     int op;
     while (true) {
         std::cout << "1. Display items from shop\n2. See details about a specific item\n3. Buy items\n4. Sell items\n5. Exit\n";
-        std::cin >> op;
+        op= read(1,5);
         switch (op) {
             case 1:
                 displayitems();

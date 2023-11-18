@@ -155,6 +155,8 @@ add_executable(${PROJECT_NAME} main.cpp
         "Teleport Functions.h"
         "Decision Function.cpp"
         "Decision Function.h"
+        "Correct Read Function.cpp"
+        "Correct Read Function.h"
 )
 
 ###############################################################################
