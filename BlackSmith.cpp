@@ -5,9 +5,11 @@
 #include "BlackSmith.h"
 
     Blacksmith::Blacksmith()=default;
+
     Blacksmith::~Blacksmith()=default;
+
     bool Blacksmith::UpgradePlusLevel(Item  *sword, Player *player) {
-        int chance = rand() % 100;
+        int chance = rand() % 101;
         switch (sword->getpluslevel()) {
             case 0: {
                 if (chance > 0 && chance <= 90){
@@ -178,45 +180,52 @@
 
     void Blacksmith::BlacksmithFun(Player *player) {
         int op;
-        while(true){
-            std::cout << "1. See chances of success at upgrades\n2. Upgrade you sword\n3. Display your sword's plus level"
-                      <<"\n4. Exit\n";
+        while(true) {
+            std::cout
+                    << "1. See chances of success at upgrades\n2. Upgrade you sword\n3. Display your sword's plus level"
+                    << "\n4. Exit\n";
             std::cin >> op;
             switch (op) {
                 case 1:
                     displayChances();
                     break;
                 case 2: {
-                    std::cout << "If you are sure enter 'y' , else enter 'n'\n";
-                    char rsp;
-                    std::cin >> rsp;
-                    switch (rsp) {
-                        case 'y':{
-                            if (UpgradePlusLevel(player->getSword(), player))
+                    if (player->getSword()->getpluslevel() >= 9) {
+                        std::cout << "Your sword has the maximum Plus Level!\n";
+                        break;
+                    } else {
+                        std::cout << "If you are sure enter 'y' , else enter 'n'\n";
+                        char rsp;
+                        std::cin >> rsp;
+                        switch (rsp) {
+                            case 'y': {
+                                if (UpgradePlusLevel(player->getSword(), player))
+                                    break;
+                                else
+                                    return;
+                            }
+                            case 'n':
                                 break;
-                            else
-                                return;}
-                        case 'n':
-                            break;
-                        default: {
-                            std::cout << "Invalid option\n";
-                            break;
+                            default: {
+                                std::cout << "Invalid option\n";
+                                break;
+                            }
                         }
+                        break;
                     }
-                    break;
-                }
-                case 3: {
-                    std::cout << "Your " << player->getSword()->getname() << " has +"
-                              << player->getSword()->getpluslevel() << " level\n";
-                    break;
-                }
-                case 4:
-                    return;
-                default: {
-                    std::cout << "Invalid option\n";
-                    break;
-                }
+                    case 3: {
+                        std::cout << "Your " << player->getSword()->getname() << " has +"
+                                  << player->getSword()->getpluslevel() << " level\n";
+                        break;
+                    }
+                    case 4:
+                        return;
+                    default: {
+                        std::cout << "Invalid option\n";
+                        break;
+                    }
 
+                }
             }
         }
     }
