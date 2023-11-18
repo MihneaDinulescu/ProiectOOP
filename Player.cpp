@@ -110,7 +110,6 @@ Inventory * Player::getInventory() {
 
 void Player::endGame() {
     this->inventory->freeEverything();
-    delete this->sword;
     delete this->inventory;
 }
 

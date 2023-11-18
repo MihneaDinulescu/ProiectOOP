@@ -5,7 +5,7 @@
 #include "Inventory Functions.h"
 
 void equipsword(Player *player){
-    int op=0;
+    int op;
     int x;
     op=player->getInventory()->displaySwords();
     if(op == 0) { std::cout<<"You don't have any swords in your inventory!\n"; return; }
