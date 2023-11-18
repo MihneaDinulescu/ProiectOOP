@@ -10,6 +10,8 @@
 #include <string>
 
 int read(int bottom, int top) {
+    int result = 0;
+
     while (true) {
         std::string input;
         if (!std::getline(std::cin, input)) {
@@ -19,7 +21,8 @@ int read(int bottom, int top) {
         try {
             int digit = std::stoi(input);
             if (digit >= bottom && digit <= top) {
-                return digit;
+                result = digit;
+                break;
             }
         } catch (const std::exception& e) {
             e.what();
@@ -27,10 +30,11 @@ int read(int bottom, int top) {
         }
     }
 
-    return 0;
+    return result;
 }
 
 unsigned long read2(unsigned int bottom, unsigned long top) {
+    int result = 0;
     while (true) {
         std::string input;
         if (!std::getline(std::cin, input)) {
@@ -48,5 +52,5 @@ unsigned long read2(unsigned int bottom, unsigned long top) {
         }
     }
 
-    return 0;
+    return result;
 }
