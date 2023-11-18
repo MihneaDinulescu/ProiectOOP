@@ -188,7 +188,7 @@
         int op;
         while(true) {
             std::cout
-                    << "1. See chances of success at upgrades\n2. Upgrade you sword\n3. Display your sword's plus level"
+                    << "1. See chances of success at upgrades\n2. Upgrade your sword\n3. Display your sword's plus level"
                     << "\n4. Exit\n";
             op = read(1,4);
             switch (op) {
@@ -204,13 +204,13 @@
                         int rsp;
                         rsp=read(0,1);
                         switch (rsp) {
-                            case 0: {
+                            case 1: {
                                 if (UpgradePlusLevel(player->getSword(), player))
                                     break;
                                 else
                                     return;
                             }
-                            case 1:
+                            case 0:
                                 break;
                             default: {
                                 std::cout << "Invalid option\n";

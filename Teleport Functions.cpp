@@ -12,7 +12,7 @@ void TeleportFun(Player *player, std::vector<Maps *> maps) {
                   << maps.at(i)->getlevelReq() << ")\n";
     }
     std::cout << "If you want to leave teleporter enter '0'\n";
-    op= read(1,3);
+    op= read(0,3);
     if (op == 0) { return; }
     switch (op) {
         case 1: {

@@ -40,7 +40,7 @@ void Mapfun(Player *player) {
                     std::cout << "Invalid Option!\n";
             }
         } else {
-            op= read(1,2);
+            op = read(1,2);
             switch (op) {
                 case 1: {
                     currentFight = new Fight(player);
