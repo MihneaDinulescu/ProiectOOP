@@ -61,10 +61,9 @@ void regenhp(Player *player) {
 
 void HealthFun(Player* player) {
 
-    int op;
     while (true) {
-        std::cout
-                << "1. See HP\n2. See heal resources available\n3. Regenerate your HP\n4. Exit\n";
+        int op;
+        std::cout << "1. See HP\n2. See heal resources available\n3. Regenerate your HP\n4. Exit\n";
         op= read(1,4);
         switch (op) {
             case 1:
