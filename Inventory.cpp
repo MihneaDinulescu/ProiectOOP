@@ -11,8 +11,8 @@ Inventory::Inventory() {
     }
 }
 
-int Inventory::getInventorySize() const {
-    return(this->inventorySize);
+ int Inventory::getInventorySize() {
+    return inventorySize;
 }
 
 std::vector<InventorySlot*> Inventory::getInventorySpace() {
@@ -67,10 +67,13 @@ void Inventory::setFirstEmptySlot(InventorySlot* toBeAdded) {
 void Inventory::displayInventory() {
 
     for (int i = 0; i < this->getInventorySize(); i++) {
-        if (this->inventorySpace.at(i)->getQuantity() == 0)
+        if (this->inventorySpace.at(i)->getQuantity() <= 0)
             std::cout << "SLOT " << i + 1 << ": " << "Empty\n";
         else
-            std::cout << "SLOT " << i + 1 << ": " << *(this->inventorySpace.at(i)) << "\n";
+            if(this->inventorySpace.at(i)->getCurentItem()->getdamage())
+            std::cout << "SLOT " << i + 1 << ": " << *(this->inventorySpace.at(i)) << " +"<< this->inventorySpace.at(i)->getCurentItem()->getpluslevel() <<"\n";
+            else
+                std::cout << "SLOT " << i + 1 << ": " << *(this->inventorySpace.at(i)) <<"\n";
     }
 }
 

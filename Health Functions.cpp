@@ -19,11 +19,12 @@ int displayhpres(Player* player){
     int counter=0;
     for (int i = 0; i < player->getInventory()->getInventorySize(); i++) {
         if (player->getInventory()->getInventorySpace().at(i)->getCurentItem()->getgivesHeal() && player->getInventory()->getInventorySpace().at(i)->getQuantity() > 0 ) {
-            std::cout << counter + 1 << ") " << player->getInventory()->getInventorySpace().at(i)->getQuantity() << "x "
+            std::cout << counter + 1 << ". " << player->getInventory()->getInventorySpace().at(i)->getQuantity() << "x "
                       << player->getInventory()->getInventorySpace().at(i)->getCurentItem()->getname() << std::endl;
             counter++;
         }
     }
+    std::cout<<std::endl;
     if(counter==0) {
         std::cout << "You don't have heal potions!\n";
     }
@@ -64,7 +65,7 @@ void HealthFun(Player* player) {
     while (true) {
         std::cout
                 << "1. See HP\n2. See heal resources available\n3. Regenerate your HP\n4. Exit\n";
-        std::cin >> op;
+        op= read(1,4);
         switch (op) {
             case 1:
                 displayhp(player);

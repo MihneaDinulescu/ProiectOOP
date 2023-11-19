@@ -15,13 +15,13 @@ class Inventory
 protected:
 
     std::vector<InventorySlot*> inventorySpace;
-    const int inventorySize = 30;
+    static const int inventorySize = 30;
 
 public:
 
     Inventory();
 
-   int getInventorySize() const;
+   static int getInventorySize();
 
     std::vector<InventorySlot*> getInventorySpace();
 

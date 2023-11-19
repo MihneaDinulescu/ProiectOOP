@@ -8,11 +8,11 @@
 void equipsword(Player *player){
     int op;
     int x;
-    op=player->getInventory()->displaySwords();
-    if(op == 0) { std::cout<<"You don't have any swords in your inventory!\n"; return; }
     if(player->getSword() != (nullptr)){
         std::cout<<"You already have equiped a sword\n";
         return;}
+    op=player->getInventory()->displaySwords();
+    if(op == 0) { std::cout<<"You don't have any swords in your inventory!\n"; return; }
     std::cout<<"Enter the number of the sword you want to equip :";
     x=read(1,30);
     int counter=0;
