@@ -106,7 +106,7 @@ Fight::~Fight(){
 
     void Fight::awaitPlayerInput() {
 
-        displayhp(fightPlayer);
+        fightPlayer->displayhp();
         std::cout << "1. Hit\n";
 
         int decission = read(1,1);

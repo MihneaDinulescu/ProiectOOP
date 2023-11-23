@@ -14,7 +14,7 @@
 #include "Tiger.h"
 #include "Ork.h"
 #include "DarkFanatic.h"
-#include "Health Functions.h"
+#include "Player.h"
 
 class Fight {
 private:
