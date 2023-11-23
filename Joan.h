@@ -11,7 +11,7 @@ class Joan : public Maps{
 private:
     Blacksmith *bs;
 public:
-    explicit Joan(std::string _name = "", int _levelReq = 0);
+    explicit Joan(const std::string& _name = "", int _levelReq = 0);
 
     Joan(const Joan& other);
 

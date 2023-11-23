@@ -4,9 +4,7 @@
 
 #include "Joan.h"
 
-#include <utility>
-
- Joan::Joan(std::string _name , int _levelReq ) : Maps(_name,_levelReq) , bs(new Blacksmith()){}
+ Joan::Joan(const std::string& _name , int _levelReq ) : Maps(_name,_levelReq) , bs(new Blacksmith()){}
 
 Joan::~Joan(){
 delete bs;
