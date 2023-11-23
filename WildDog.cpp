@@ -10,7 +10,7 @@ WildDog::WildDog(){
     this->name="Wild Dog";
     this->level=1;
     this->region="Joan";
-    this->xp_gain=10;
+    this->xp_gain=7;
     this->yang_drop=20 + ( rand() % ( 30 - 20 + 1 ) );  // 20
 }
 void WildDog::attack(Player *player) {

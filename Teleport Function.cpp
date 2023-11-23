@@ -2,8 +2,9 @@
 // Created by dinul on 11/18/2023.
 //
 
-#include "Teleport Functions.h"
+#include "Teleport Function.h"
 #include "Correct Read Function.h"
+
 void TeleportFun(Player *player, std::vector<Maps *> maps) {
     int op;
     std::cout << "Enter the number of the Map where you want to teleport\n";
@@ -18,7 +19,7 @@ void TeleportFun(Player *player, std::vector<Maps *> maps) {
         case 1: {
             if (player->getlevel() >= maps.at(op - 1)->getlevelReq()) {
                 player->setcurrentMap(maps.at(op - 1));
-                Mapfun(player);
+                player->Mapfun();
             } else {
                 std::cout << "Your level is lower than the map's minimum level requirement\n";
                 return;
@@ -28,7 +29,7 @@ void TeleportFun(Player *player, std::vector<Maps *> maps) {
         case 2: {
             if (player->getlevel() >= maps.at(op - 1)->getlevelReq()) {
                 player->setcurrentMap(maps.at(op - 1));
-                Mapfun(player);
+                player->Mapfun();
             } else {
                 std::cout << "Your level is lower than the map's minimum level requirement\n";
                 return;
@@ -38,7 +39,7 @@ void TeleportFun(Player *player, std::vector<Maps *> maps) {
         case 3: {
             if (player->getlevel() >= maps.at(op - 1)->getlevelReq()) {
                 player->setcurrentMap(maps.at(op - 1));
-                Mapfun(player);
+                player->Mapfun();
             } else {
                 std::cout << "Your level is lower than the map's minimum level requirement\n";
                 return;

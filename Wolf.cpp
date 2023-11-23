@@ -10,7 +10,7 @@
         this->name="Wolf";
         this->level=3;
         this->region="Joan";
-        this->xp_gain=20;
+        this->xp_gain=15;
         this->yang_drop=35 + ( rand() % ( 45 - 35 + 1 ) );   //35
     }
     void Wolf::attack(Player *player) {

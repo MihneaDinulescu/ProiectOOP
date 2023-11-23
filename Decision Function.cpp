@@ -3,10 +3,7 @@
 //
 
 #include "Decision Function.h"
-#include "Teleport Functions.h"
-#include "Inventory Functions.h"
-#include "Health Functions.h"
-#include "Shop Functions.h"
+#include "Teleport Function.h"
 #include "Correct Read Function.h"
 
 void decisionFunction(Player *player, const std::vector<Maps*>& maps) {
@@ -21,16 +18,16 @@ void decisionFunction(Player *player, const std::vector<Maps*>& maps) {
                 TeleportFun(player, maps);
                 break;
             case 2:
-                inventoryfun(player);
+                player->inventoryfun();
                 break;
             case 3:
-                HealthFun(player);
+                player->HealthFun();
                 break;
             case 4:
-                ShopFun(player);
+                player->ShopFun();
                 break;
             case 5:
-                Levelfun(player);
+                player->Levelfun();
                 break;
             case 6:
                 player->endGame();

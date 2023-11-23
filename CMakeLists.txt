@@ -141,18 +141,10 @@ add_executable(${PROJECT_NAME} main.cpp
         DarkFanatic.h
         Shop.cpp
         Shop.h
-        "Health Functions.h"
-        "Health Functions.cpp"
-        "Shop Functions.cpp"
-        "Shop Functions.h"
-        "Inventory Functions.h"
-        "Inventory Functions.cpp"
         Fight.h
         Fight.cpp
-        "Map Functions.h"
-        "Map Functions.cpp"
-        "Teleport Functions.cpp"
-        "Teleport Functions.h"
+        "Teleport Function.cpp"
+        "Teleport Function.h"
         "Decision Function.cpp"
         "Decision Function.h"
         "Correct Read Function.cpp"

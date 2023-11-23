@@ -40,6 +40,10 @@ public:
 
     HPbig getHPBig();
 
+    void displayitems();
+
+    void detailsitems();
+
 };
 
 

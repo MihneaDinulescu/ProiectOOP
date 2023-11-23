@@ -10,7 +10,7 @@
         this->name="Boar";
         this->level=6;
         this->region="Joan";
-        this->xp_gain=35;
+        this->xp_gain=20;  // era 35
         this->yang_drop=50 + ( rand() % ( 60 - 50 + 1 ) );  //50
     }
     void Boar::attack(Player *player) {

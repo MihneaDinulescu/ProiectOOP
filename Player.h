@@ -51,13 +51,9 @@ public:
 
     void healplayer(int add);
 
-    double getYang() const;
-
     void difYang(double sum);
 
     void sumYang(double sum);
-
-    int gethp() const;
 
     void sethp(int HP);
 
@@ -70,6 +66,34 @@ public:
     int getdamage() const;
 
     void takedamage(int tkdmg);
+
+    void displayhp();
+
+    int displayhpres();
+
+    void regenhp();
+
+    void HealthFun();
+
+    void equipsword();
+
+    void unequipsword();
+
+    void restack();
+
+    void Levelfun();
+
+    void inventoryfun();
+
+    void Mapfun();
+
+    void buyitems();
+
+    void sellitems();
+
+    void ShopFun();
+
+
 
 };
 
