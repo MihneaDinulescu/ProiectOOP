@@ -10,11 +10,12 @@
         this->name="Tiger";
         this->level=12;
         this->region="Bakra";
-        this->xp_gain=85;
-        this->yang_drop=150;
+        this->xpGain=85;
+        this->yangDrop=150;
     }
     void Tiger::attack(Player *player) {
 
-        player->takedamage(this->damage);
+        player->takeDamage(this->damage);
+        std::cout<<"Oh no! A Tiger is going to attack you!\n";
 
     }

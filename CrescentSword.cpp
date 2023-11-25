@@ -5,13 +5,13 @@
 
     CrescentSword::CrescentSword(){
         this->name="Crescent Sword";
-        this->givesheal=false;
+        this->givesHeal=false;
         this->damage=8;
-        this->pluslevel=0;
-        this->levelreq=4;
-        this->shop_price=500;
-        this->stacksize=1;
-        this->heal_gain=0;
+        this->plusLevel=0;
+        this->levelReq=4;
+        this->shopPrice=500;
+        this->stackSize=1;
+        this->healGain=0;
     }
 
 

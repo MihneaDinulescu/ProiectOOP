@@ -5,11 +5,11 @@
 
 FullMoonSword::FullMoonSword(){
     this->name="Full Moon Sword";
-    this->givesheal=false;
+    this->givesHeal=false;
     this->damage=17;
-    this->pluslevel=0;
-    this->levelreq=8;
-    this->shop_price=1300;
-    this->stacksize=1;
-    this->heal_gain=0;
+    this->plusLevel=0;
+    this->levelReq=8;
+    this->shopPrice=1300;
+    this->stackSize=1;
+    this->healGain=0;
 }

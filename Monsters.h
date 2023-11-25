@@ -15,8 +15,8 @@ protected:
     std::string name;
     int level;
     std::string region;
-    int xp_gain;
-    double yang_drop;
+    int xpGain;
+    double yangDrop;
 public:
     Monsters();
 
@@ -30,15 +30,15 @@ public:
 
     int getXpGain() const;
 
-    int getdamage() const;
+    int getDamage() const;
 
-    int gethp() const;
+    int getHp() const;
 
-    std::string getname();
+    std::string getName();
 
-    void takedamage(int dmg);
+    void takeDamage(int dmg);
 
-    double getYang_drop() const;
+    double getYangDrop() const;
 };
 
 #endif //OOP_MONSTERS_H

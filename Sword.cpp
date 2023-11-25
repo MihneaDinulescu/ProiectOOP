@@ -5,11 +5,11 @@
 
     Sword::Sword(){
         this->name="Sword";
-        this->givesheal=false;
+        this->givesHeal=false;
         this->damage=4;
-        this->pluslevel=0;
-        this->levelreq=1;
-        this->shop_price=30;
-        this->stacksize=1;
-        this->heal_gain=0;
+        this->plusLevel=0;
+        this->levelReq=1;
+        this->shopPrice=30;
+        this->stackSize=1;
+        this->healGain=0;
     }

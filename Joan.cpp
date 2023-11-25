@@ -33,6 +33,6 @@ Joan& Joan::operator=(const Joan& other) {
     return *this;
 }
 
-Blacksmith * Joan::getBlacksmith(){
+Blacksmith * Joan::getBlackSmith(){
     return this->bs;
 }

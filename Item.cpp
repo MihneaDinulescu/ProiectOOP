@@ -7,13 +7,13 @@
 
     Item::Item(){
         this->name="Nothing";
-        this->givesheal=false;
+        this->givesHeal=false;
         this->damage=0;
-        this->pluslevel=0;
-        this->levelreq=0;
-        this->heal_gain=0;
-        this->stacksize=0;
-        this->shop_price=0;
+        this->plusLevel=0;
+        this->levelReq=0;
+        this->healGain=0;
+        this->stackSize=0;
+        this->shopPrice=0;
 
     }
     Item::~Item() = default;
@@ -21,44 +21,44 @@
 std::ostream &operator<<(std::ostream &out, const Item &item) {
     out << "Details about this item:" << std::endl;
     out << "Name: " << item.name << std::endl;
-    if(item.givesheal)
-        out << "Heal given by 1x "<< item.name << "is + " << item.heal_gain << "HP" << std::endl;
+    if(item.givesHeal)
+        out << "Heal given by 1x "<< item.name << "is + " << item.healGain << "HP" << std::endl;
     if(item.damage)
         out << "Damage: " << item.damage << std::endl;
-    if(!item.givesheal)
-        out << "Plus Level: " << item.pluslevel << std::endl;
-    out << "Level required for buying: " << item.levelreq << std::endl;
-    out << "Price for x1 " << item.name <<" " << "is : " << item.shop_price ;
+    if(!item.givesHeal)
+        out << "Plus Level: " << item.plusLevel << std::endl;
+    out << "Level required for buying: " << item.levelReq << std::endl;
+    out << "Price for x1 " << item.name <<" " << "is : " << item.shopPrice ;
     out << "\n\n";
     return out;
 }
 
- void Item::IncrementPluslevel(){
-        this->pluslevel+=1;
+ void Item::IncrementPlusLevel(){
+        this->plusLevel+=1;
     }
- bool Item::getgivesHeal() const{
-        return this->givesheal;
+ bool Item::getGivesHeal() const{
+        return this->givesHeal;
     }
- int Item::getpluslevel() const{
-        return this->pluslevel;
+ int Item::getPlusLevel() const{
+        return this->plusLevel;
     }
- int Item::getlevelreq() const{
-        return this->levelreq;
+ int Item::getLevelReq() const{
+        return this->levelReq;
     }
- int Item::getdamage() const{
+ int Item::getDamage() const{
         return this->damage;
     }
- std::string Item::getname(){
+ std::string Item::getName(){
         return this->name;
     }
- int Item::getshop_price() const{
-        return this->shop_price;
+ int Item::getShopPrice() const{
+        return this->shopPrice;
     }
- int Item::gethealgain() const{
-        return this->heal_gain;
+ int Item::getHealGain() const{
+        return this->healGain;
     }
-    int Item::getstacksize() const{
-        return this->stacksize;
+    int Item::getStackSize() const{
+        return this->stackSize;
     }
 
 

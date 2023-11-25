@@ -6,11 +6,11 @@
 
     HPsmall::HPsmall(){
         this->name="Small HP Potion";
-        this->givesheal=true;
+        this->givesHeal=true;
         this->damage=0;
-        this->pluslevel=0;
-        this->levelreq=1;
-        this->shop_price=10;
-        this->stacksize=5; // era 50
-        this->heal_gain=3;
+        this->plusLevel=0;
+        this->levelReq=1;
+        this->shopPrice=10;
+        this->stackSize=5; // era 50
+        this->healGain=3;
     }

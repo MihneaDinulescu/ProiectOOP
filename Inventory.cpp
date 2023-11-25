@@ -70,8 +70,8 @@ void Inventory::displayInventory() {
         if (this->inventorySpace.at(i)->getQuantity() <= 0)
             std::cout << "SLOT " << i + 1 << ": " << "Empty\n";
         else
-            if(this->inventorySpace.at(i)->getCurentItem()->getdamage())
-            std::cout << "SLOT " << i + 1 << ": " << *(this->inventorySpace.at(i)) << " +"<< this->inventorySpace.at(i)->getCurentItem()->getpluslevel() <<"\n";
+            if(this->inventorySpace.at(i)->getCurentItem()->getDamage())
+            std::cout << "SLOT " << i + 1 << ": " << *(this->inventorySpace.at(i)) << " +"<< this->inventorySpace.at(i)->getCurentItem()->getPlusLevel() <<"\n";
             else
                 std::cout << "SLOT " << i + 1 << ": " << *(this->inventorySpace.at(i)) <<"\n";
     }
@@ -82,11 +82,11 @@ int Inventory::displaySwords() {
     int counter = 0;
     for (int i = 0; i < this->getInventorySize(); i++) {
         if (this->inventorySpace.at(i)->getQuantity() > 0 &&
-            this->inventorySpace.at(i)->getCurentItem()->getdamage() > 0) {
+            this->inventorySpace.at(i)->getCurentItem()->getDamage() > 0) {
             std::cout << counter + 1 << ". "
-                      << this->inventorySpace.at(i)->getCurentItem()->getname()
+                      << this->inventorySpace.at(i)->getCurentItem()->getName()
                       << " which has +" << this->inventorySpace.at(
-                    i)->getCurentItem()->getpluslevel() << " Plus Level\n";
+                    i)->getCurentItem()->getPlusLevel() << " Plus Level\n";
             counter++;
         }
     }

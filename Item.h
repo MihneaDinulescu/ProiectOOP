@@ -11,13 +11,13 @@ class Item{
 
 protected:
     std::string name;
-    bool givesheal;
+    bool givesHeal;
     int damage;
-    int pluslevel;
-    int levelreq;
-    int heal_gain;
-    int stacksize;
-    int shop_price;
+    int plusLevel;
+    int levelReq;
+    int healGain;
+    int stackSize;
+    int shopPrice;
 
 public:
     Item();
@@ -26,23 +26,23 @@ public:
 
     friend std::ostream& operator<<(std::ostream& out, const Item& item);
 
-    void IncrementPluslevel();
+    void IncrementPlusLevel();
 
-    bool getgivesHeal() const;
+    bool getGivesHeal() const;
 
-    int getpluslevel() const;
+    int getPlusLevel() const;
 
-    int getlevelreq() const;
+    int getLevelReq() const;
 
-    int getdamage() const;
+    int getDamage() const;
 
-    std::string getname();
+    std::string getName();
 
-    int getshop_price() const;
+    int getShopPrice() const;
 
-    int gethealgain() const;
+    int getHealGain() const;
 
-    int getstacksize() const;
+    int getStackSize() const;
 
 };
 

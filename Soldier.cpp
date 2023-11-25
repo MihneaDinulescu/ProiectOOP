@@ -10,11 +10,12 @@
         this->name="Soldier";
         this->level=10;
         this->region="Bakra";
-        this->xp_gain=70;
-        this->yang_drop=100;
+        this->xpGain=70;
+        this->yangDrop=100;
     }
     void Soldier::attack(Player *player)  {
 
-        player->takedamage(this->damage);
+        player->takeDamage(this->damage);
+        std::cout<<"Oh no! A Soldier is going to attack you!\n";
 
     }

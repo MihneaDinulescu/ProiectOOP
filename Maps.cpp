@@ -7,10 +7,10 @@
 
     Maps::~Maps()=default;
 
-    int Maps::getlevelReq() const{
+    int Maps::getLevelReq() const{
         return this->levelReq;
     }
 
-    std::string Maps::getname(){
+    std::string Maps::getName(){
         return this->name;
     }

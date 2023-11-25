@@ -11,7 +11,7 @@
 
         for (int i = 0; i < numberOfMobs; i++) {
 
-            if (fightPlayer->getcurrentMap()->getname().compare("Joan") == 0) {
+            if (fightPlayer->getCurrentMap()->getName().compare("Joan") == 0) {
                 int randmob = rand() % 3 + 1;
                 switch (randmob) {
                     case 1:
@@ -25,7 +25,7 @@
                         break;
                 }
 
-            } else if (fightPlayer->getcurrentMap()->getname() == "Bakra") {
+            } else if (fightPlayer->getCurrentMap()->getName() == "Bakra") {
                 int randmob = rand() % 2 + 1;
                 switch (randmob) {
                     case 1:
@@ -36,7 +36,7 @@
                         break;
                 }
 
-            } else if (fightPlayer->getcurrentMap()->getname().compare("Seungryong") == 0) {
+            } else if (fightPlayer->getCurrentMap()->getName().compare("Seungryong") == 0) {
                 int randmob = rand() % 2 + 1;
                 switch (randmob) {
                     case 1:
@@ -65,8 +65,8 @@ Fight::~Fight(){
     void Fight::printMobsWithHP() {
         for (unsigned long i = 0; i < this->fightMobsVector.size(); i++) {
 
-            std::cout << i + 1 << "." << this->fightMobsVector.at(i)->getname() << " has "
-                      << this->fightMobsVector.at(i)->gethp() << " % HP\n";
+            std::cout << i + 1 << "." << this->fightMobsVector.at(i)->getName() << " has "
+                      << this->fightMobsVector.at(i)->getHp() << " % HP\n";
 
         }
     }
@@ -76,7 +76,7 @@ Fight::~Fight(){
         this->printMobsWithHP();
 
         while (!fightMobsVector.empty()) {
-            if(fightPlayer->isdead()) {
+            if(fightPlayer->isDead()) {
                 std::cout<<"--------- YOU HAVE DIED ! ----------\n";
                 //SARE ITEM DIN INVENTAR
                 if(!fightPlayer->getInventory()->isEmpty()) {
@@ -84,8 +84,8 @@ Fight::~Fight(){
                     while (fightPlayer->getInventory()->getInventorySpace().at(randItem)->getQuantity() == 0)
                         randItem = rand() % fightPlayer->getInventory()->getInventorySize();
                     std::cout<<"You have lost " << fightPlayer->getInventory()->getInventorySpace().at(randItem)->getItemName() ;
-                    if(fightPlayer->getInventory()->getInventorySpace().at(randItem)->getCurentItem()->getdamage() != 0)
-                        std::cout<<" with +" <<fightPlayer->getInventory()->getInventorySpace().at(randItem)->getCurentItem()->getpluslevel()
+                    if(fightPlayer->getInventory()->getInventorySpace().at(randItem)->getCurentItem()->getDamage() != 0)
+                        std::cout<<" with +" <<fightPlayer->getInventory()->getInventorySpace().at(randItem)->getCurentItem()->getPlusLevel()
                                  << " plus level";
                     std::cout<<"\n";
                     fightPlayer->getInventory()->getInventorySpace().at(randItem)->setQuantity(0);
@@ -93,7 +93,7 @@ Fight::~Fight(){
                         fightPlayer->setSwordNull();
 
                 }
-                fightPlayer->sethp(25);
+                fightPlayer->setHp(25);
                 std::cout<<"You will be respawned with 25% HP\n";
                 return;
             }
@@ -106,7 +106,7 @@ Fight::~Fight(){
 
     void Fight::awaitPlayerInput() {
 
-        fightPlayer->displayhp();
+        fightPlayer->displayHp();
         std::cout << "1. Hit\n";
 
         int decission = read(1,1);
@@ -137,9 +137,9 @@ Fight::~Fight(){
             freq[randomIndex]++;
             if (freq[randomIndex] == 1) {
                 fightMobsVector.at(randomIndex)->attack(fightPlayer);
-                std::cout << "The " << randomIndex + 1 << " " << fightMobsVector.at(randomIndex)->getname()
+                std::cout << "The " << randomIndex + 1 << " " << fightMobsVector.at(randomIndex)->getName()
                           << " hit you for " <<
-                          fightMobsVector.at(randomIndex)->getdamage() << " damage!\n";
+                          fightMobsVector.at(randomIndex)->getDamage() << " damage!\n";
             }
             randomAttack--;
         }
@@ -167,15 +167,15 @@ Fight::~Fight(){
 
         }
 
-        int totaldmg = this->fightPlayer->getdamage();
+        int totaldmg = this->fightPlayer->getDamage();
         if(fightPlayer->getSword()!=nullptr)
-            totaldmg+= this->fightPlayer->getSword()->getdamage()+ this->fightPlayer->getSword()->getpluslevel();
-        std::cout << "You've hit the " << numberOfMob << ". " << this->fightMobsVector.at(numberOfMob - 1)->getname()
+            totaldmg+= this->fightPlayer->getSword()->getDamage()+ this->fightPlayer->getSword()->getPlusLevel();
+        std::cout << "You've hit the " << numberOfMob << ". " << this->fightMobsVector.at(numberOfMob - 1)->getName()
                   << " for " << totaldmg << " damage!\n";
-        this->fightMobsVector.at(numberOfMob - 1)->takedamage(totaldmg);
-        if (this->fightMobsVector.at(numberOfMob - 1)->gethp() <= 0) {
+        this->fightMobsVector.at(numberOfMob - 1)->takeDamage(totaldmg);
+        if (this->fightMobsVector.at(numberOfMob - 1)->getHp() <= 0) {
             this->fightPlayer->addXp(this->fightMobsVector.at(numberOfMob-1)->getXpGain());
-            this->fightPlayer->sumYang(this->fightMobsVector.at(numberOfMob - 1)->getYang_drop());
+            this->fightPlayer->sumYang(this->fightMobsVector.at(numberOfMob - 1)->getYangDrop());
             delete this->fightMobsVector.at(numberOfMob - 1);
             this->fightMobsVector.erase(this->fightMobsVector.begin() + numberOfMob - 1);
         }

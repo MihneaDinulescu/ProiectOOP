@@ -34,15 +34,15 @@ public:
 
     FullMoonSword getFullMoonSword();
 
-    HPsmall getHPSmall();
+    HPsmall getHpSmall();
 
-    HPmedium getHPMedium();
+    HPmedium getHpMedium();
 
-    HPbig getHPBig();
+    HPbig getHpBig();
 
-    void displayitems();
+    void displayItems();
 
-    void detailsitems();
+    void detailsItems();
 
 };
 

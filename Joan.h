@@ -19,7 +19,7 @@ public:
 
     ~Joan() override;
 
-    Blacksmith * getBlacksmith();
+    Blacksmith * getBlackSmith();
 };
 
 #endif //OOP_JOAN_H

@@ -10,12 +10,13 @@ DarkFanatic::DarkFanatic(){
         this->name="Dark Fanatic";
         this->level=20;
         this->region="Seungryong";
-        this->xp_gain=130;
-        this->yang_drop=250;
+        this->xpGain=130;
+        this->yangDrop=250;
 
     }
     void DarkFanatic::attack(Player *player) {
 
-        player->takedamage(this->damage);
+        player->takeDamage(this->damage);
+        std::cout<<"Oh no! A Dark Fanatic is going to attack you!\n";
 
     }

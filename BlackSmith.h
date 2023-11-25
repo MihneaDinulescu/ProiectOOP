@@ -19,7 +19,7 @@ public:
 
     void displayChances();
 
-    void BlacksmithFun(Player *player);
+    void BlacksmithFunction(Player *player);
 };
 
 #endif //OOP_BLACKSMITH_H

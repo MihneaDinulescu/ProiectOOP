@@ -17,9 +17,9 @@ public:
 
     virtual ~Maps();
 
-    int getlevelReq() const;
+    int getLevelReq() const;
 
-    std::string getname();
+    std::string getName();
 };
 
 #endif //OOP_MAPS_H

@@ -10,11 +10,12 @@
         this->name="Boar";
         this->level=6;
         this->region="Joan";
-        this->xp_gain=20;  // era 35
-        this->yang_drop=50 + ( rand() % ( 60 - 50 + 1 ) );  //50
+        this->xpGain=20;  // era 35
+        this->yangDrop=50 + ( rand() % ( 60 - 50 + 1 ) );  //50
     }
     void Boar::attack(Player *player) {
 
-        player->takedamage(this->damage);
+        player->takeDamage(this->damage);
+        std::cout<<"Oh no! A Boar is going to attack you!\n";
 
     }

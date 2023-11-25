@@ -37,64 +37,64 @@ public:
 
     Item * getSword();
 
-    int getlevel() const;
+    int getLevel() const;
 
     void IncrementLevel();
 
-    Maps * getcurrentMap();
+    Maps * getCurrentMap();
 
-    void setcurrentMap(Maps *map);
+    void setCurrentMap(Maps *map);
 
     void setSwordNull();
 
     void setSword(Item * sw);
 
-    void healplayer(int add);
+    void healPlayer(int add);
 
     void difYang(double sum);
 
     void sumYang(double sum);
 
-    void sethp(int HP);
+    void setHp(int HP);
 
-    bool isdead() const;
+    bool isDead() const;
 
     Inventory * getInventory();
 
     void endGame();
 
-    int getdamage() const;
+    int getDamage() const;
 
-    void takedamage(int tkdmg);
+    void takeDamage(int tkdmg);
 
-    void displayhp();
+    void displayHp();
 
-    int displayhpres();
+    int displayHpResource();
 
-    void regenhp();
+    void regenHp();
 
-    void HealthFun();
+    void healthFunction();
 
-    void equipsword();
+    void equipSword();
 
-    void unequipsword();
+    void unequipSword();
 
     void restack();
 
-    void Levelfun();
+    void levelFunction();
 
-    void inventoryfun();
+    void inventoryFunction();
 
-    void Mapfun();
+    void mapFunction();
 
-    void buyitems();
+    void buyItems();
 
-    void sellitems();
+    void sellItems();
 
-    void ShopFun();
+    void shopFunction();
 
 
-
+    int displayhpres();
 };
 
 

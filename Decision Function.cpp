@@ -18,16 +18,16 @@ void decisionFunction(Player *player, const std::vector<Maps*>& maps) {
                 TeleportFun(player, maps);
                 break;
             case 2:
-                player->inventoryfun();
+                player->inventoryFunction();
                 break;
             case 3:
-                player->HealthFun();
+                player->healthFunction();
                 break;
             case 4:
-                player->ShopFun();
+                player->shopFunction();
                 break;
             case 5:
-                player->Levelfun();
+                player->levelFunction();
                 break;
             case 6:
                 player->endGame();

@@ -30,7 +30,7 @@ std::ostream &operator<<(std::ostream& out, InventorySlot& ob) {
 
     std::string InventorySlot::getItemName(){
 
-        return(this->curentItem->getname());
+        return(this->curentItem->getName());
 
     }
 

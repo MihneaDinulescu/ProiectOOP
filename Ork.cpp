@@ -10,11 +10,12 @@
         this->name="Ork";
         this->level=17;
         this->region="Seungryong";
-        this->xp_gain=105;
-        this->yang_drop=200;
+        this->xpGain=105;
+        this->yangDrop=200;
     }
     void Ork::attack(Player *player) {
 
-        player->takedamage(this->damage);
+        player->takeDamage(this->damage);
+        std::cout<<"Oh no! An Ork is going to attack you!\n";
 
     }

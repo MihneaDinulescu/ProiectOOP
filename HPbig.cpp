@@ -6,11 +6,11 @@
 
 HPbig::HPbig(){
     this->name="Big HP Potion";
-    this->givesheal=true;
+    this->givesHeal=true;
     this->damage=0;
-    this->pluslevel=0;
-    this->levelreq=5;
-    this->shop_price=100;
-    this->stacksize=2; //era 10
-    this->heal_gain=100;
+    this->plusLevel=0;
+    this->levelReq=5;
+    this->shopPrice=100;
+    this->stackSize=2; //era 10
+    this->healGain=100;
 }

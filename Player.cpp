@@ -63,16 +63,16 @@ void Player::difXp(int _xp){
 Item * Player::getSword(){
     return this->sword;
 }
-int Player::getlevel() const{
+int Player::getLevel() const{
     return this->level;
 }
 void Player::IncrementLevel(){
     this->level ++;
 }
-Maps * Player::getcurrentMap(){
+Maps * Player::getCurrentMap(){
     return this->currentMap;
 }
-void Player::setcurrentMap(Maps *map){
+void Player::setCurrentMap(Maps *map){
     this->currentMap=map;
 }
 void Player::setSwordNull(){
@@ -81,7 +81,7 @@ void Player::setSwordNull(){
 void Player::setSword(Item * sw){
     this->sword=sw;
 }
-void Player::healplayer(int add) {
+void Player::healPlayer(int add) {
     this->hp += add;
 }
 
@@ -92,11 +92,11 @@ void Player::sumYang(double sum) {
     this->yang = this->yang + sum;
 }
 
-void Player::sethp(int HP){
+void Player::setHp(int HP){
     this->hp = HP;
 }
 
-bool Player::isdead() const {
+bool Player::isDead() const {
     if (this->hp <= 0) return(true);
     return(false);
 }
@@ -110,16 +110,16 @@ void Player::endGame() {
     delete this->inventory;
 }
 
-int Player::getdamage() const {
+int Player::getDamage() const {
     return(this->damage);
 }
 
-void Player::takedamage(int tkdmg) {
+void Player::takeDamage(int tkdmg) {
     this->hp = this->hp - tkdmg;
 }
 
 
-void Player::displayhp() {
+void Player::displayHp() {
     std::cout << "HEALTH BAR : ";
     for (int i = 0; i < this->hp; i++) {
         std::cout << "=";
@@ -131,10 +131,10 @@ int Player::displayhpres() {
     std::cout << "Heal items available from your inventory:\n";
     int counter = 0;
     for (int i = 0; i < this->inventory->getInventorySize(); i++) {
-        if (this->inventory->getInventorySpace().at(i)->getCurentItem()->getgivesHeal() &&
+        if (this->inventory->getInventorySpace().at(i)->getCurentItem()->getGivesHeal() &&
             this->inventory->getInventorySpace().at(i)->getQuantity() > 0) {
             std::cout << counter + 1 << ". " << this->inventory->getInventorySpace().at(i)->getQuantity() << "x "
-                      << this->inventory->getInventorySpace().at(i)->getCurentItem()->getname() << std::endl;
+                      << this->inventory->getInventorySpace().at(i)->getCurentItem()->getName() << std::endl;
             counter++;
         }
     }
@@ -145,7 +145,7 @@ int Player::displayhpres() {
     return counter;
 }
 
-void Player::regenhp() {
+void Player::regenHp() {
     std::cout << "You need to use only health potions\n";
     int cnt = displayhpres();
     if (cnt == 0) {
@@ -158,14 +158,14 @@ void Player::regenhp() {
     int nr = 0;
     for (int i = 0; i < this->inventory->getInventorySize(); i++) {
 
-        if (this->inventory->getInventorySpace().at(i)->getCurentItem()->getgivesHeal() &&
+        if (this->inventory->getInventorySpace().at(i)->getCurentItem()->getGivesHeal() &&
             this->inventory->getInventorySpace().at(i)->getQuantity() > 0)
             nr++;
         if (nr == nrop) {
-            if (this->hp + this->inventory->getInventorySpace().at(i)->getCurentItem()->gethealgain() > 50)
-                healplayer(50 - (this->hp));
+            if (this->hp + this->inventory->getInventorySpace().at(i)->getCurentItem()->getHealGain() > 50)
+                healPlayer(50 - (this->hp));
             else
-                healplayer(this->inventory->getInventorySpace().at(i)->getCurentItem()->gethealgain());
+                healPlayer(this->inventory->getInventorySpace().at(i)->getCurentItem()->getHealGain());
             this->inventory->getInventorySpace().at(i)->removeQuantity(1);
             std::cout << "You have successfully healed!\n";
             return;
@@ -174,21 +174,21 @@ void Player::regenhp() {
     std::cout << "Invalid option!\n";
 }
 
-void Player::HealthFun() {
+void Player::healthFunction() {
     while (true) {
         int op;
         std::cout << "1. See HP\n2. See heal resources available\n3. Regenerate your HP\n4. Exit\n";
         op = read(1, 4);
         switch (op) {
             case 1:
-                Player::displayhp();
+                Player::displayHp();
                 break;
             case 2:
                 Player::displayhpres();
                 break;
             case 3:
                 if (this->hp < 50)
-                    Player::regenhp();
+                    Player::regenHp();
                 else
                     std::cout << "You have Full HP\n";
                 break;
@@ -200,7 +200,7 @@ void Player::HealthFun() {
     }
 }
 
-void Player::equipsword(){
+void Player::equipSword(){
     int op;
     int x;
     if(this->sword != (nullptr)){
@@ -212,7 +212,7 @@ void Player::equipsword(){
     x=read(1,30);
     int counter=0;
     for (int i = 0; i < this->inventory->getInventorySize(); i++) {
-        if(this->inventory->getInventorySpace().at(i)->getQuantity() > 0 && this->inventory->getInventorySpace().at(i)->getCurentItem()->getdamage() > 0)
+        if(this->inventory->getInventorySpace().at(i)->getQuantity() > 0 && this->inventory->getInventorySpace().at(i)->getCurentItem()->getDamage() > 0)
             counter++;
         if(counter==x) {
             this->setSword(this->inventory->getInventorySpace().at(i)->getCurentItem());
@@ -225,7 +225,7 @@ void Player::equipsword(){
 
 }
 
-void Player::unequipsword(){
+void Player::unequipSword(){
     if(this->sword == (nullptr)){
         std::cout<<"You don't have any sword equiped\n";
         return;}
@@ -238,11 +238,11 @@ void Player::restack(){
     int nr=0;
     for (int i = 0; i < this->inventory->getInventorySize(); i++)
     {
-        if(this->inventory->getInventorySpace().at(i)->getQuantity() > 0 &&  this->inventory->getInventorySpace().at(i)->getQuantity() < this->inventory->getInventorySpace().at(i)->getCurentItem()->getstacksize() &&
-                this->inventory->getInventorySpace().at(i)->getCurentItem()->getgivesHeal())
+        if(this->inventory->getInventorySpace().at(i)->getQuantity() > 0 &&  this->inventory->getInventorySpace().at(i)->getQuantity() < this->inventory->getInventorySpace().at(i)->getCurentItem()->getStackSize() &&
+                this->inventory->getInventorySpace().at(i)->getCurentItem()->getGivesHeal())
             for(int j = i+1 ; j < this->inventory->getInventorySize(); j++) {
-                if(this->inventory->getInventorySpace().at(j)->getCurentItem()->getgivesHeal() && this->inventory->getInventorySpace().at(j)->getCurentItem()->getname() == this->inventory->getInventorySpace().at(i)->getCurentItem()->getname())
-                    while(this->inventory->getInventorySpace().at(j)->getQuantity() > 0 && (this->inventory->getInventorySpace().at(i)->getQuantity() < this->inventory->getInventorySpace().at(i)->getCurentItem()->getstacksize()))
+                if(this->inventory->getInventorySpace().at(j)->getCurentItem()->getGivesHeal() && this->inventory->getInventorySpace().at(j)->getCurentItem()->getName() == this->inventory->getInventorySpace().at(i)->getCurentItem()->getName())
+                    while(this->inventory->getInventorySpace().at(j)->getQuantity() > 0 && (this->inventory->getInventorySpace().at(i)->getQuantity() < this->inventory->getInventorySpace().at(i)->getCurentItem()->getStackSize()))
                     { this->inventory->getInventorySpace().at(i)->addQuantity(1);
                         this->inventory->getInventorySpace().at(j)->removeQuantity(1);
                         nr++;
@@ -255,7 +255,7 @@ void Player::restack(){
         std::cout<<"You do not have any Health Potions or your Health Potions are already stacked normal!\n";
 }
 
-void Player::Levelfun(){
+void Player::levelFunction() {
     while (true) {
         int op;
         std::cout<<"1. Display your level\n2. Display your XP\n3. Level up\n4. Exit\n";
@@ -288,7 +288,7 @@ void Player::Levelfun(){
     }
 }
 
-void Player::inventoryfun(){
+void Player::inventoryFunction(){
     while (true) {
         int op;
         std::cout<<"1. Display inventory\n2. Display yang\n3. Equip sword\n4. Unequip sword\n5. Restack HP potions\n6. Exit\n";
@@ -301,10 +301,10 @@ void Player::inventoryfun(){
                 std::cout<<"You have " << this->yang << " YANG\n";
                 break;
             case 3:
-                equipsword();
+                equipSword();
                 break;
             case 4:
-                unequipsword();
+                unequipSword();
                 break;
             case 5:
                 restack();
@@ -319,9 +319,9 @@ void Player::inventoryfun(){
 }
 
 
-void Player::buyitems(){
+void Player::buyItems(){
     Shop sh;
-    sh.displayitems();
+    sh.displayItems();
     std::cout << "Enter the number of the specific item which you want to buy : ";
     int x;
     x=read(1,7);
@@ -334,11 +334,11 @@ void Player::buyitems(){
     switch(x)
     {
         case 1: {
-            if (this->yang < sh.getSword().getshop_price()) {
+            if (this->yang < sh.getSword().getShopPrice()) {
                 std::cout << "You don't have sufficient young to buy this item!\n";
                 return;
             }
-            if(this->level < sh.getSword().getlevelreq())
+            if(this->level < sh.getSword().getLevelReq())
             {
                 std::cout << "You don't have enough level to buy this item!\n";
                 return ;
@@ -346,17 +346,17 @@ void Player::buyitems(){
             InventorySlot *tmpslot = new InventorySlot();
             tmpslot->setItemType(new Sword());
             tmpslot->setQuantity(1);
-            difYang(sh.getSword().getshop_price());
+            difYang(sh.getSword().getShopPrice());
             this->inventory->setFirstEmptySlot(tmpslot);
             std::cout<< "You've successfully bought the item!\n\n";
             break;
         }
         case 2: {
-            if (this->yang < sh.getCrescentSword().getshop_price()) {
+            if (this->yang < sh.getCrescentSword().getShopPrice()) {
                 std::cout << "You don't have sufficient young to buy this item!\n\n";
                 return;
             }
-            if(this->level < sh.getCrescentSword().getlevelreq())
+            if(this->level < sh.getCrescentSword().getLevelReq())
             {
                 std::cout << "You don't have enough level to buy this item!\n";
                 return ;
@@ -364,17 +364,17 @@ void Player::buyitems(){
             InventorySlot *tmpslot = new InventorySlot();
             tmpslot->setItemType(new CrescentSword());
             tmpslot->setQuantity(1);
-            difYang(sh.getCrescentSword().getshop_price());
+            difYang(sh.getCrescentSword().getShopPrice());
             this->inventory->setFirstEmptySlot(tmpslot);
             std::cout << "You've successfully bought the item!\n\n";
             break;
         }
         case 3: {
-            if (this->yang < sh.getSilverSword().getshop_price()) {
+            if (this->yang < sh.getSilverSword().getShopPrice()) {
                 std::cout << "You don't have sufficient young to buy this item!\n\n";
                 return;
             }
-            if(this->level < sh.getSilverSword().getlevelreq())
+            if(this->level < sh.getSilverSword().getLevelReq())
             {
                 std::cout << "You don't have enough level to buy this item!\n";
                 return ;
@@ -382,17 +382,17 @@ void Player::buyitems(){
             InventorySlot *tmpslot = new InventorySlot();
             tmpslot->setItemType(new SilverSword());
             tmpslot->setQuantity(1);
-            difYang(sh.getSilverSword().getshop_price());
+            difYang(sh.getSilverSword().getShopPrice());
             this->inventory->setFirstEmptySlot(tmpslot);
             std::cout << "You've successfully bought the item!\n\n";
             break;
         }
         case 4: {
-            if (this->yang < sh.getFullMoonSword().getshop_price()) {
+            if (this->yang < sh.getFullMoonSword().getShopPrice()) {
                 std::cout << "You don't have sufficient young to buy this item!\n\n";
                 return;
             }
-            if(this->level < sh.getFullMoonSword().getlevelreq())
+            if(this->level < sh.getFullMoonSword().getLevelReq())
             {
                 std::cout << "You don't have enough level to buy this item!\n";
                 return ;
@@ -400,24 +400,24 @@ void Player::buyitems(){
             InventorySlot *tmpslot = new InventorySlot();
             tmpslot->setItemType(new FullMoonSword());
             tmpslot->setQuantity(1);
-            difYang(sh.getFullMoonSword().getshop_price());
+            difYang(sh.getFullMoonSword().getShopPrice());
             this->inventory->setFirstEmptySlot(tmpslot);
             std::cout << "You've successfully bought the item!\n\n";
             break;
         }
         case 5: {
-            if (this->yang < sh.getHPSmall().getshop_price()) {
+            if (this->yang < sh.getHpSmall().getShopPrice()) {
                 std::cout << "You don't have sufficient young to buy this item!\n\n";
                 return;
             }
-            if(this->level < sh.getHPSmall().getlevelreq())
+            if(this->level < sh.getHpSmall().getLevelReq())
             {
                 std::cout << "You don't have enough level to buy this item!\n";
                 return ;
             }
-            difYang(sh.getHPSmall().getshop_price());
+            difYang(sh.getHpSmall().getShopPrice());
             InventorySlot *ptr = this->inventory->findItemByNameAndStackSize("Small HP Potion",
-                                                                                    sh.getHPSmall().getstacksize());
+                                                                                    sh.getHpSmall().getStackSize());
             if (ptr != nullptr) {
                 ptr->addQuantity(1);
             } else {
@@ -431,18 +431,18 @@ void Player::buyitems(){
             break;
         }
         case 6: {
-            if (this->yang < sh.getHPMedium().getshop_price()) {
+            if (this->yang < sh.getHpMedium().getShopPrice()) {
                 std::cout << "You don't have sufficient young to buy this item!\n\n";
                 return;
             }
-            if(this->level < sh.getHPMedium().getlevelreq())
+            if(this->level < sh.getHpMedium().getLevelReq())
             {
                 std::cout << "You don't have enough level to buy this item!\n";
                 return ;
             }
-            difYang(sh.getHPMedium().getshop_price());
+            difYang(sh.getHpMedium().getShopPrice());
             InventorySlot *ptr = this->inventory->findItemByNameAndStackSize("Medium HP Potion",
-                                                                                    sh.getHPMedium().getstacksize());
+                                                                                    sh.getHpMedium().getStackSize());
             if (ptr != nullptr) {
                 ptr->addQuantity(1);
             } else {
@@ -455,18 +455,18 @@ void Player::buyitems(){
             break;
         }
         case 7: {
-            if (this->yang < sh.getHPBig().getshop_price()) {
+            if (this->yang < sh.getHpBig().getShopPrice()) {
                 std::cout << "You don't have sufficient young to buy this item!\n\n";
                 return;
             }
-            if(this->level < sh.getHPBig().getlevelreq())
+            if(this->level < sh.getHpBig().getLevelReq())
             {
                 std::cout << "You don't have enough level to buy this item!\n";
                 return ;
             }
-            difYang(sh.getHPBig().getshop_price());
+            difYang(sh.getHpBig().getShopPrice());
             InventorySlot *ptr = this->inventory->findItemByNameAndStackSize("Big HP Potion",
-                                                                                    sh.getHPMedium().getstacksize());
+                                                                                    sh.getHpMedium().getStackSize());
             if (ptr != nullptr) {
                 ptr->addQuantity(1);
             } else {
@@ -484,7 +484,7 @@ void Player::buyitems(){
 
 }
 
-void Player::sellitems(){
+void Player::sellItems(){
     this->inventory->displayInventory();
     std::cout <<"You will receive 95% from the original shop price of the item when you sell something\n";
     std::cout<< "If you don't want to sell anything , enter '0'\n";
@@ -499,7 +499,7 @@ void Player::sellitems(){
         std::cout<<"You do not have an item on that slot\n\n";
         return;
     }
-    sumYang(0.95 * (this->inventory->getInventorySpace().at(op-1)->getCurentItem()->getshop_price() ) );
+    sumYang(0.95 * (this->inventory->getInventorySpace().at(op-1)->getCurentItem()->getShopPrice() ) );
     if(this->sword == this->inventory->getInventorySpace().at(op-1)->getCurentItem())
         setSwordNull();
     this->inventory->getInventorySpace().at(op-1)->removeQuantity(1);
@@ -507,7 +507,7 @@ void Player::sellitems(){
 
 }
 
-void Player::ShopFun() {
+void Player::shopFunction() {
     Shop sh;
     while (true) {
         int op;
@@ -515,16 +515,16 @@ void Player::ShopFun() {
         op= read(1,5);
         switch (op) {
             case 1:
-                sh.displayitems();
+                sh.displayItems();
                 break;
             case 2:
-                sh.detailsitems();
+                sh.detailsItems();
                 break;
             case 3:
-                buyitems();
+                buyItems();
                 break;
             case 4:
-                sellitems();
+                sellItems();
                 break;
             case 5:
                 return;
@@ -534,7 +534,7 @@ void Player::ShopFun() {
     }
 }
 
-void Player::Mapfun() {
+void Player::mapFunction() {
     Fight *currentFight;
     int op;
 
@@ -542,7 +542,7 @@ void Player::Mapfun() {
         std::cout << " WARNING --> Once you enter a fight, you can't escape until you eliminate all the monsters\n";
         std::cout << "1. Fight\n2. Leave the map\n";
 
-        if (this->currentMap->getname() == "Joan") {
+        if (this->currentMap->getName() == "Joan") {
             std::cout << "3. Upgrade Plus Level of your sword at Blacksmith\n";
             op=read(1,3);
             switch (op) {
@@ -556,7 +556,7 @@ void Player::Mapfun() {
                 case 3: {
                     if (this->sword != nullptr) {
                         Joan *p = dynamic_cast<Joan*>(this->currentMap);
-                        p->getBlacksmith()->BlacksmithFun(this);
+                        p->getBlackSmith()->BlacksmithFunction(this);
 
                     } else {
                         std::cout << "You need to have a sword equipped to be upgraded\n";

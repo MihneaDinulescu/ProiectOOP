@@ -11,10 +11,10 @@
 
     bool Blacksmith::UpgradePlusLevel(Item  *sword, Player *player) {
         int chance = rand() % 101;
-        switch (sword->getpluslevel()) {
+        switch (sword->getPlusLevel()) {
             case 0: {
                 if (chance > 0 && chance <= 90){
-                    sword->IncrementPluslevel();
+                    sword->IncrementPlusLevel();
                     std::cout<<"You have successfully upgraded your PlusLevel of your sword\n";
                     return true;}
                 else {
@@ -30,7 +30,7 @@
             }
             case 1: {
                 if (chance > 0 && chance <= 85){
-                    sword->IncrementPluslevel();
+                    sword->IncrementPlusLevel();
                     std::cout<<"You have successfully upgraded your PlusLevel of your sword\n";
                     return true;}
                 else {
@@ -47,7 +47,7 @@
             case 2: {
                 if (chance > 0 && chance <= 80)
                 {
-                    sword->IncrementPluslevel();
+                    sword->IncrementPlusLevel();
                     std::cout<<"You have successfully upgraded your PlusLevel of your sword\n";
                     return true;}
                 else {
@@ -64,7 +64,7 @@
             case 3: {
                 if (chance > 0 && chance <= 75)
                 {
-                    sword->IncrementPluslevel();
+                    sword->IncrementPlusLevel();
                     std::cout<<"You have successfully upgraded your PlusLevel of your sword\n";
                     return true;}
                 else {
@@ -81,7 +81,7 @@
             case 4: {
                 if (chance > 0 && chance <= 70)
                 {
-                    sword->IncrementPluslevel();
+                    sword->IncrementPlusLevel();
                     std::cout<<"You have successfully upgraded your PlusLevel of your sword\n";
                     return true;}
                 else {
@@ -98,7 +98,7 @@
             case 5: {
                 if (chance > 0 && chance <= 65)
                 {
-                    sword->IncrementPluslevel();
+                    sword->IncrementPlusLevel();
                     std::cout<<"You have successfully upgraded your PlusLevel of your sword\n";
                     return true;}
                 else {
@@ -115,7 +115,7 @@
             case 6: {
                 if (chance > 0 && chance <= 50)
                 {
-                    sword->IncrementPluslevel();
+                    sword->IncrementPlusLevel();
                     std::cout<<"You have successfully upgraded your PlusLevel of your sword\n";
                     return true;}
                 else {
@@ -132,7 +132,7 @@
             case 7: {
                 if (chance > 0 && chance <= 40)
                 {
-                    sword->IncrementPluslevel();
+                    sword->IncrementPlusLevel();
                     std::cout<<"You have successfully upgraded your PlusLevel of your sword\n";
                     return true;}
                 else {
@@ -149,7 +149,7 @@
             case 8: {
                 if (chance > 0 && chance <= 30)
                 {
-                    sword->IncrementPluslevel();
+                    sword->IncrementPlusLevel();
                     std::cout<<"You have successfully upgraded your PlusLevel of your sword\n";
                     return true;}
                 else {
@@ -184,7 +184,7 @@
         std::cout<<"Increasing from +8 Plus level to +9 (30% chances of success)\n";
     }
 
-    void Blacksmith::BlacksmithFun(Player *player) {
+    void Blacksmith::BlacksmithFunction(Player *player) {
         int op;
         while(true) {
             std::cout
@@ -196,7 +196,7 @@
                     displayChances();
                     break;
                 case 2: {
-                    if (player->getSword()->getpluslevel() >= 9) {
+                    if (player->getSword()->getPlusLevel() >= 9) {
                         std::cout << "Your sword has the maximum Plus Level!\n";
                         break;
                     } else {
@@ -220,8 +220,8 @@
                         break;
                     }
                     case 3: {
-                        std::cout << "Your " << player->getSword()->getname() << " has +"
-                                  << player->getSword()->getpluslevel() << " level\n";
+                        std::cout << "Your " << player->getSword()->getName() << " has +"
+                                  << player->getSword()->getPlusLevel() << " level\n";
                         break;
                     }
                     case 4:
