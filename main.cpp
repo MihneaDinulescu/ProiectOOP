@@ -1,8 +1,8 @@
 #include <iostream>
-#include "Decision Function.h"
-#include "Joan.h"
-#include "Bakra.h"
-#include "Seungryong.h"
+#include "Headers/Decision Function.h"
+#include "Headers/Joan.h"
+#include "Headers/Bakra.h"
+#include "Headers/Seungryong.h"
 
 int main() {
     srand((unsigned int) time(nullptr));

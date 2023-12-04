@@ -91,64 +91,64 @@ endfunction()
 
 # NOTE: update executable name in .github/workflows/cmake.yml:25 when changing name here
 add_executable(${PROJECT_NAME} main.cpp
-        Item.h
-        Item.cpp
-        Sword.h
-        Sword.cpp
-        CrescentSword.h
-        CrescentSword.cpp
-        SilverSword.h
-        SilverSword.cpp
-        FullMoonSword.h
-        FullMoonSword.cpp
-        HPsmall.cpp
-        HPsmall.h
-        HPmedium.cpp
-        HPmedium.h
-        HPbig.cpp
-        HPbig.h
-        InventorySlot.h
-        InventorySlot.cpp
-        Inventory.h
-        Inventory.cpp
-        Maps.cpp
-        Maps.h
-        Player.cpp
-        Player.h
-        BlackSmith.cpp
-        BlackSmith.h
-        Joan.cpp
-        Joan.h
-        Bakra.cpp
-        Bakra.h
-        Seungryong.cpp
-        Seungryong.h
-        Monsters.cpp
-        Monsters.h
-        WildDog.cpp
-        WildDog.h
-        Wolf.h
-        Wolf.cpp
-        Boar.h
-        Boar.cpp
-        Soldier.cpp
-        Soldier.h
-        Tiger.cpp
-        Tiger.h
-        Ork.cpp
-        Ork.h
-        DarkFanatic.cpp
-        DarkFanatic.h
-        Shop.cpp
-        Shop.h
-        Fight.h
-        Fight.cpp
-        "Teleport Function.cpp"
-        "Teleport Function.h"
-        "Decision Function.cpp"
-        "Decision Function.h"
-        "Correct Read Function.cpp"
-        "Correct Read Function.h"
+        Headers/Item.h
+        CPPs/Item.cpp
+        Headers/Sword.h
+        CPPs/Sword.cpp
+        Headers/CrescentSword.h
+        CPPs/CrescentSword.cpp
+        Headers/SilverSword.h
+        CPPs/SilverSword.cpp
+        Headers/FullMoonSword.h
+        CPPs/FullMoonSword.cpp
+        CPPs/HPsmall.cpp
+        Headers/HPsmall.h
+        CPPs/HPmedium.cpp
+        Headers/HPmedium.h
+        CPPs/HPbig.cpp
+        Headers/HPbig.h
+        Headers/InventorySlot.h
+        CPPs/InventorySlot.cpp
+        Headers/Inventory.h
+        CPPs/Inventory.cpp
+        CPPs/Maps.cpp
+        Headers/Maps.h
+        CPPs/Player.cpp
+        Headers/Player.h
+        CPPs/BlackSmith.cpp
+        Headers/BlackSmith.h
+        CPPs/Joan.cpp
+        Headers/Joan.h
+        CPPs/Bakra.cpp
+        Headers/Bakra.h
+        CPPs/Seungryong.cpp
+        Headers/Seungryong.h
+        CPPs/Monsters.cpp
+        Headers/Monsters.h
+        CPPs/WildDog.cpp
+        Headers/WildDog.h
+        Headers/Wolf.h
+        CPPs/Wolf.cpp
+        Headers/Boar.h
+        CPPs/Boar.cpp
+        CPPs/Soldier.cpp
+        Headers/Soldier.h
+        CPPs/Tiger.cpp
+        Headers/Tiger.h
+        CPPs/Ork.cpp
+        Headers/Ork.h
+        CPPs/DarkFanatic.cpp
+        Headers/DarkFanatic.h
+        CPPs/Shop.cpp
+        Headers/Shop.h
+        Headers/Fight.h
+        CPPs/Fight.cpp
+        "CPPs/Teleport Function.cpp"
+        "Headers/Teleport Function.h"
+        "CPPs/Decision Function.cpp"
+        "Headers/Decision Function.h"
+        "CPPs/Correct Read Function.cpp"
+        "Headers/Correct Read Function.h"
 )
 
 ###############################################################################
