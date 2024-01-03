@@ -13,7 +13,7 @@ int main() {
     Player *player = new Player();
     decisionFunction(player, maps);
     delete player;
-    for (int i = 0; i < maps.size() ; i++)
+    for (int i = 0; i < 3 ; i++)
         delete maps.at(i);
     return 0;
 }
