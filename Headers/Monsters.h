@@ -26,7 +26,7 @@ public:
 
     Monsters &operator=(const Monsters &monster);
 
-    virtual void attack(Player *player);
+    virtual void attack(Player *player) = 0;
 
     int getXpGain() const;
 

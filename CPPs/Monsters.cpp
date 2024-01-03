@@ -29,10 +29,6 @@ Monsters &Monsters::operator=(const Monsters &monster) {
     return *this;
 }
 
-void Monsters::attack(Player *player) {
-    (void) player;
-}
-
 int Monsters::getXpGain() const {
     return this->xpGain;
 }
