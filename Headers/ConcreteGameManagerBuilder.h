@@ -25,7 +25,7 @@ public:
 
     GameManager *getResult() override;
 
-    ~ConcreteGameManagerBuilder();
+    ~ConcreteGameManagerBuilder() override;
 };
 
 

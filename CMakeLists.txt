@@ -154,6 +154,7 @@ add_executable(${PROJECT_NAME} main.cpp
         Headers/GameManagerBuilder.h
         Headers/ConcreteGameManagerBuilder.h
         CPPs/ConcreteGameManagerBuilder.cpp
+        CPPs/GameManagerBuilder.cpp
 )
 
 ###############################################################################

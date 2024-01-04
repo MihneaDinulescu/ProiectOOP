@@ -10,8 +10,12 @@
 class GameManagerBuilder {
 public:
     virtual void buildMaps() = 0;
+
     virtual void buildPlayer() = 0;
-    virtual GameManager* getResult() = 0;
+
+    virtual GameManager *getResult() = 0;
+
+    virtual ~GameManagerBuilder();
 };
 
 

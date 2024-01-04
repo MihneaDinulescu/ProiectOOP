@@ -2,13 +2,12 @@
 #include "Headers/ConcreteGameManagerBuilder.h"
 
 int main() {
-    ConcreteGameManagerBuilder builder;
-    builder.buildMaps();
-    builder.buildPlayer();
-
-    GameManager* gameManager = builder.getResult();
+    GameManagerBuilder *builder = new ConcreteGameManagerBuilder();
+    builder->buildMaps();
+    builder->buildPlayer();
+    GameManager *gameManager = builder->getResult();
     gameManager->executeGameLogic();
-
+    delete builder;
     return 0;
 }
 
