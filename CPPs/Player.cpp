@@ -30,7 +30,6 @@ Player::Player(const Player &other) {
 
     this->sword = (other.sword != nullptr) ? new Item(*(other.sword)) : nullptr;
     this->inventory = (other.inventory != nullptr) ? new Inventory(*(other.inventory)) : nullptr;
-    this->currentMap = (other.currentMap != nullptr) ? new Maps(*(other.currentMap)) : nullptr;
 }
 
 Player &Player::operator=(const Player &other) {
@@ -46,9 +45,6 @@ Player &Player::operator=(const Player &other) {
         this->yang = other.yang;
         this->level = other.level;
 
-        this->sword = (other.sword != nullptr) ? new Item(*(other.sword)) : nullptr;
-        this->inventory = (other.inventory != nullptr) ? new Inventory(*(other.inventory)) : nullptr;
-        this->currentMap = (other.currentMap != nullptr) ? new Maps(*(other.currentMap)) : nullptr;
     }
 
     return *this;

@@ -15,6 +15,8 @@ protected:
 public:
     Maps(std::string _name = "", int _levelReq = 0);
 
+    virtual Maps* clone() const = 0;
+
     virtual ~Maps();
 
     int getLevelReq() const;

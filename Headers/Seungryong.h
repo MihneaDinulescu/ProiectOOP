@@ -11,6 +11,8 @@ class Seungryong : public Maps {
 public:
     explicit Seungryong(std::string _name = "", int _levelReq = 0);
 
+    Maps* clone() const override;
+
     ~Seungryong() override;
 };
 
