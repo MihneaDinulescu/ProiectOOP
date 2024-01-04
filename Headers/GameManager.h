@@ -9,6 +9,7 @@
 #include "Joan.h"
 #include "Bakra.h"
 #include "Seungryong.h"
+#include "Decision Function.h"
 
 class GameManager {
 private:

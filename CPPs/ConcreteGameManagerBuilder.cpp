@@ -4,26 +4,25 @@
 
 #include "../Headers/ConcreteGameManagerBuilder.h"
 
-ConcreteGameManagerBuilder() {
+ConcreteGameManagerBuilder::ConcreteGameManagerBuilder() {
     gameManager = new GameManager();
 }
 
-void buildMaps() {
+void ConcreteGameManagerBuilder::buildMaps() {
     gameManager->addMap(new Joan());
     gameManager->addMap(new Bakra());
     gameManager->addMap(new Seungryong());
 }
 
-void buildPlayer() {
+void ConcreteGameManagerBuilder::buildPlayer() {
     gameManager->setPlayer(new Player());
 }
 
-GameManager *getResult() {
+GameManager * ConcreteGameManagerBuilder::getResult() {
     return gameManager;
 }
 
-~
 
-ConcreteGameManagerBuilder() {
+ConcreteGameManagerBuilder::~ConcreteGameManagerBuilder() {
     delete gameManager;
 }

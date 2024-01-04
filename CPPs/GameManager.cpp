@@ -5,17 +5,17 @@
 #include "../Headers/GameManager.h"
 #include "../Headers/Decision Function.h"
 
-GameManager() { player = nullptr; }
+GameManager::GameManager() { player = nullptr; }
 
-void addMap(Maps *map) {
+void GameManager::addMap(Maps *map) {
     maps.push_back(map);
 }
 
-void setPlayer(Player *p) {
+void GameManager::setPlayer(Player *p) {
     player = p;
 }
 
-void executeGameLogic() {
+void GameManager::executeGameLogic() {
     if (player && !maps.empty()) {
         srand((unsigned int) time(nullptr));
         decisionFunction(player, maps);
@@ -24,13 +24,10 @@ void executeGameLogic() {
     }
 }
 
-~
-
-GameManager() {
+GameManager::~GameManager() {
     delete player;
     for (auto map: maps) {
         delete map;
     }
 }
 
-};
