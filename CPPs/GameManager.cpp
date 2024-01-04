@@ -3,20 +3,14 @@
 //
 
 #include "../Headers/GameManager.h"
+#include "../Headers/Decision Function.h"
 
 GameManager::GameManager() { player = nullptr; }
 
 GameManager::GameManager(const GameManager& other) {
     // Deep copy maps
     for (auto map : other.maps) {
-        if(dynamic_cast<Joan *> (map))
-        maps.push_back(new Joan(*(dynamic_cast<Joan *> (map))));
-        else
-        if(dynamic_cast<Seungryong *> (map))
-            maps.push_back(new Seungryong(*(dynamic_cast<Seungryong *> (map))));
-            else
-        if(dynamic_cast<Bakra *> (map))
-            maps.push_back(new Bakra(*(dynamic_cast<Bakra *> (map))));
+        maps.push_back(new Maps(*map));
     }
 
     // Deep copy player
@@ -35,14 +29,7 @@ GameManager& GameManager::operator=(const GameManager& other) {
         // Deep copy maps
         maps.clear();
         for (auto map : other.maps) {
-            if(dynamic_cast<Joan *> (map))
-                maps.push_back(new Joan(*(dynamic_cast<Joan *> (map))));
-            else
-            if(dynamic_cast<Seungryong *> (map))
-                maps.push_back(new Seungryong(*(dynamic_cast<Seungryong *> (map))));
-            else
-            if(dynamic_cast<Bakra *> (map))
-                maps.push_back(new Bakra(*(dynamic_cast<Bakra *> (map))));
+            maps.push_back(new Maps(*map)); // Assuming Maps has a copy constructor
         }
 
         // Deep copy player
