@@ -13,7 +13,7 @@ protected:
     std::string name;
     int levelReq;
 public:
-    explicit Maps(std::string _name = "", int _levelReq = 0);
+    Maps(std::string _name = "", int _levelReq = 0);
 
     virtual ~Maps();
 

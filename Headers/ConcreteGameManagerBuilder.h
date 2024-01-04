@@ -15,6 +15,10 @@ private:
 public:
     ConcreteGameManagerBuilder();
 
+    ConcreteGameManagerBuilder(const ConcreteGameManagerBuilder& other);
+
+    ConcreteGameManagerBuilder& operator=(const ConcreteGameManagerBuilder& other);
+
     void buildMaps() override;
 
     void buildPlayer() override;

@@ -19,6 +19,10 @@ private:
 public:
     GameManager();
 
+    GameManager(const GameManager& other);
+
+    GameManager& operator=(const GameManager& other);
+
     void addMap(Maps *map);
 
     void setPlayer(Player *p);
