@@ -149,6 +149,11 @@ add_executable(${PROJECT_NAME} main.cpp
         "Headers/Decision Function.h"
         "CPPs/Correct Read Function.cpp"
         "Headers/Correct Read Function.h"
+        Headers/GameManager.h
+        CPPs/GameManager.cpp
+        Headers/GameManagerBuilder.h
+        Headers/ConcreteGameManagerBuilder.h
+        CPPs/ConcreteGameManagerBuilder.cpp
 )
 
 ###############################################################################

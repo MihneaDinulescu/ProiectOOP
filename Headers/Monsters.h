@@ -5,7 +5,6 @@
 #ifndef OOP_MONSTERS_H
 #define OOP_MONSTERS_H
 
-#include<iostream>
 #include "Player.h"
 
 class Monsters {
