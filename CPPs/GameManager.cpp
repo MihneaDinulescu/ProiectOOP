@@ -6,9 +6,45 @@
 
 GameManager::GameManager() { player = nullptr; }
 
-GameManager::GameManager(const GameManager &other) {}
+GameManager::GameManager(const GameManager& other) {
 
-GameManager &GameManager::operator=(const GameManager &other) {}
+    if (other.player) {
+        player = new Player(*other.player);
+    } else {
+        player = nullptr;
+    }
+
+    for (auto map : other.maps) {
+        maps.push_back(map);
+    }
+}
+
+
+GameManager& GameManager::operator=(const GameManager& other) {
+    if (this != &other) {
+
+        for (auto map : maps) {
+            delete map;
+        }
+        delete player;
+
+
+        if (other.player) {
+            player = new Player(*other.player);
+        } else {
+            player = nullptr;
+        }
+
+
+        maps.clear();
+
+
+        for (auto map : other.maps) {
+            maps.push_back(map);
+        }
+    }
+    return *this;
+}
 
 void GameManager::addMap(Maps *map) {
     maps.push_back(map);

@@ -20,6 +20,74 @@ Player::Player() {
     this->xp = 0;
 }
 
+Player::Player(const Player &other) {
+
+    hp = other.hp;
+    damage = other.damage;
+    xp = other.xp;
+    yang = other.yang;
+    level = other.level;
+
+    if (other.sword) {
+        sword = new Item(*other.sword);
+    } else {
+        sword = nullptr;
+    }
+
+
+    if (other.inventory) {
+        inventory = new Inventory(*other.inventory);
+    } else {
+        inventory = nullptr;
+    }
+
+
+    if (other.currentMap) {
+        currentMap = new Maps(*other.currentMap);
+    } else {
+        currentMap = nullptr;
+    }
+}
+
+
+Player& Player::operator=(const Player &other) {
+    if (this != &other) {
+
+        delete sword;
+        delete inventory;
+        delete currentMap;
+
+
+        hp = other.hp;
+        damage = other.damage;
+        xp = other.xp;
+        yang = other.yang;
+        level = other.level;
+
+
+        if (other.sword) {
+            sword = new Item(*other.sword);
+        } else {
+            sword = nullptr;
+        }
+
+
+        if (other.inventory) {
+            inventory = new Inventory(*other.inventory);
+        } else {
+            inventory = nullptr;
+        }
+
+
+        if (other.currentMap) {
+            currentMap = new Maps(*other.currentMap);
+        } else {
+            currentMap = nullptr;
+        }
+    }
+    return *this;
+}
+
 void Player::addXp(int _xp) {
     this->xp += _xp;
 }
