@@ -6,35 +6,9 @@
 
 GameManager::GameManager() { player = nullptr; }
 
-GameManager::GameManager(const GameManager &other) {
+GameManager::GameManager(const GameManager &other) {}
 
-    for (auto map: other.maps) {
-        maps.push_back(map->clone());
-    }
-
-    player = new Player(*other.player);
-}
-
-
-GameManager &GameManager::operator=(const GameManager &other) {
-    if (this != &other) {
-
-        for (auto map: maps) {
-            delete map;
-        }
-        delete player;
-
-        maps.clear();
-
-        for (auto map: other.maps) {
-            maps.push_back(map->clone());
-        }
-
-        // Deep copy player
-        player = new Player(*other.player);
-    }
-    return *this;
-}
+GameManager &GameManager::operator=(const GameManager &other) {}
 
 void GameManager::addMap(Maps *map) {
     maps.push_back(map);

@@ -6,10 +6,6 @@
 
 Joan::Joan(const std::string &_name, int _levelReq) : Maps(_name, _levelReq), bs(new Blacksmith()) {}
 
-Maps* Joan::clone() const {
-return new Joan(*this);
-}
-
 Joan::~Joan() {
     delete bs;
 }

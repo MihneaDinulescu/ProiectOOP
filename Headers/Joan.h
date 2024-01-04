@@ -13,8 +13,6 @@ private:
 public:
     explicit Joan(const std::string &_name = "", int _levelReq = 0);
 
-    Maps* clone() const override;
-
     Joan(const Joan &other);
 
     Joan &operator=(const Joan &other);

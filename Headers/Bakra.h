@@ -11,8 +11,6 @@ class Bakra : public Maps {
 public:
     explicit Bakra(std::string _name = "", int _levelReq = 0);
 
-    Maps* clone() const override;
-
     ~Bakra() override;
 };
 
