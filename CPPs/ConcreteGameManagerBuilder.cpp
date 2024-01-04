@@ -21,9 +21,9 @@ ConcreteGameManagerBuilder& ConcreteGameManagerBuilder::operator=(const Concrete
 }
 
 void ConcreteGameManagerBuilder::buildMaps() {
-    gameManager->addMap(new Joan());
-    gameManager->addMap(new Bakra());
-    gameManager->addMap(new Seungryong());
+    gameManager->addMap(new Joan("Joan",1));
+    gameManager->addMap(new Bakra("Bakra",4));
+    gameManager->addMap(new Seungryong("Seungryong",10));
 }
 
 void ConcreteGameManagerBuilder::buildPlayer() {

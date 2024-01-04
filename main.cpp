@@ -9,7 +9,6 @@ int main() {
     GameManager* gameManager = builder.getResult();
     gameManager->executeGameLogic();
 
-    delete gameManager;
     return 0;
 }
 
