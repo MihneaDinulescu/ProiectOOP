@@ -163,6 +163,7 @@ add_executable(${PROJECT_NAME} main.cpp
         Headers/TigerFactory.h
         Headers/OrkFactory.h
         Headers/DarkFanaticFactory.h
+        CPPs/MonsterFactory.cpp
 )
 
 ###############################################################################

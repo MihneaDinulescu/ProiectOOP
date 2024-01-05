@@ -10,6 +10,8 @@
 class MonsterFactory {
 public:
     virtual Monsters* createMonster() = 0;
+
+    virtual ~MonsterFactory();
 };
 
 #endif //OOP_MONSTERFACTORY_H
