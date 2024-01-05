@@ -9,6 +9,7 @@ InventorySlot::InventorySlot() {
 }
 
 InventorySlot::~InventorySlot() {
+    if(this->curentItem)
     delete (this->curentItem);
 }
 
