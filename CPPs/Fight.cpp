@@ -4,53 +4,61 @@
 
 #include "../Headers/Fight.h"
 #include "../Headers/Correct Read Function.h"
+#include "../Headers/MonsterFactory.h"
+#include "../Headers/WildDogFactory.h"
+#include "../Headers/WolfFactory.h"
+#include "../Headers/BoarFactory.h"
+#include "../Headers/SoldierFactory.h"
+#include "../Headers/TigerFactory.h"
+#include "../Headers/OrkFactory.h"
+#include "../Headers/DarkFanaticFactory.h"
 
 void Fight::generateMobs() {
+    MonsterFactory* factory = nullptr;
 
-    int numberOfMobs = rand() % 3 + 1;
-
-    for (int i = 0; i < numberOfMobs; i++) {
-
-        if (fightPlayer->getCurrentMap()->getName().compare("Joan") == 0) {
-            int randmob = rand() % 3 + 1;
-            switch (randmob) {
-                case 1:
-                    fightMobsVector.push_back(new WildDog());
-                    break;
-                case 2:
-                    fightMobsVector.push_back(new Wolf());
-                    break;
-                case 3:
-                    fightMobsVector.push_back(new Boar());
-                    break;
-            }
-
-        } else if (fightPlayer->getCurrentMap()->getName() == "Bakra") {
-            int randmob = rand() % 2 + 1;
-            switch (randmob) {
-                case 1:
-                    fightMobsVector.push_back(new Soldier());
-                    break;
-                case 2:
-                    fightMobsVector.push_back(new Tiger());
-                    break;
-            }
-
-        } else if (fightPlayer->getCurrentMap()->getName().compare("Seungryong") == 0) {
-            int randmob = rand() % 2 + 1;
-            switch (randmob) {
-                case 1:
-                    fightMobsVector.push_back(new Ork());
-                    break;
-                case 2:
-                    fightMobsVector.push_back(new DarkFanatic());
-                    break;
-            }
-
+    if (fightPlayer->getCurrentMap()->getName() == "Joan") {
+        int randmob = rand() % 3 + 1;
+        switch (randmob) {
+            case 1:
+                factory = new WildDogFactory();
+                break;
+            case 2:
+                factory = new WolfFactory();
+                break;
+            case 3:
+                factory = new BoarFactory();
+                break;
         }
+    } else if (fightPlayer->getCurrentMap()->getName() == "Bakra") {
+        int randmob = rand() % 2 + 1;
+        switch (randmob) {
+            case 1:
+                factory = new SoldierFactory();
+                break;
+            case 2:
+                factory = new TigerFactory();
+                break;
+        }
+    } else if (fightPlayer->getCurrentMap()->getName() == "Seungryong") {
+        int randmob = rand() % 2 + 1;
+        switch (randmob) {
+            case 1:
+                factory = new OrkFactory();
+                break;
+            case 2:
+                factory = new DarkFanaticFactory();
+                break;
+        }
+    }
 
+    if (factory) {
+        fightMobsVector.push_back(factory->createMonster());
+        delete factory;
+    } else {
+        std::cout << "No matching factory found for the current map." << std::endl;
     }
 }
+
 
 Fight::Fight(Player *player) {
     this->fightPlayer = player;

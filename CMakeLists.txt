@@ -155,6 +155,14 @@ add_executable(${PROJECT_NAME} main.cpp
         Headers/ConcreteGameManagerBuilder.h
         CPPs/ConcreteGameManagerBuilder.cpp
         CPPs/GameManagerBuilder.cpp
+        "Headers/MonsterFactory.h"
+        Headers/WildDogFactory.h
+        Headers/WolfFactory.h
+        Headers/BoarFactory.h
+        Headers/SoldierFactory.h
+        Headers/TigerFactory.h
+        Headers/OrkFactory.h
+        Headers/DarkFanaticFactory.h
 )
 
 ###############################################################################
