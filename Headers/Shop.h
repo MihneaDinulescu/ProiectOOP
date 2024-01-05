@@ -24,7 +24,7 @@ private:
     HPmedium hpm;
     HPbig hpb;
 public:
-    friend std::ostream &operator<<(std::ostream &, Shop &);
+    friend std::ostream &operator<<(std::ostream &out, Shop &shop);
 
     Sword getSword();
 

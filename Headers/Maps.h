@@ -5,21 +5,23 @@
 #ifndef OOP_MAPS_H
 #define OOP_MAPS_H
 
-#include<iostream>
+#include <iostream>
 #include <utility>
 
+template<typename T>
 class Maps {
-protected:
-    std::string name;
+private:
+    T name;
     int levelReq;
+
 public:
-    Maps(std::string _name = "", int _levelReq = 0);
+    Maps(T _name = "", int _levelReq = 0);
 
     virtual ~Maps();
 
     int getLevelReq() const;
 
-    std::string getName();
+    T getName() const;
 };
 
 #endif //OOP_MAPS_H

@@ -7,7 +7,7 @@
 
 #include "Maps.h"
 
-class Bakra : public Maps {
+class Bakra : public Maps <std::string>{
 public:
     explicit Bakra(std::string _name = "", int _levelReq = 0);
 

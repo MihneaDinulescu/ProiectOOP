@@ -7,7 +7,7 @@
 
 #include "Maps.h"
 
-class Seungryong : public Maps {
+class Seungryong : public Maps<std::string> {
 public:
     explicit Seungryong(std::string _name = "", int _levelReq = 0);
 

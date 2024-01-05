@@ -13,7 +13,7 @@
 
 class GameManager {
 private:
-    std::vector<Maps *> maps;
+    std::vector<Maps<std::string> *> maps;
     Player *player;
 
 public:
@@ -23,7 +23,7 @@ public:
 
     GameManager& operator=(const GameManager& other);
 
-    void addMap(Maps *map);
+    void addMap(Maps<std::string> * map);
 
     void setPlayer(Player *p);
 

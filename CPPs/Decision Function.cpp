@@ -6,7 +6,7 @@
 #include "../Headers/Teleport Function.h"
 #include "../Headers/Correct Read Function.h"
 
-void decisionFunction(Player *player, const std::vector<Maps *> &maps) {
+void decisionFunction(Player *player, const std::vector<Maps<std::string> *> &maps) {
 
     while (true) {
 

@@ -18,7 +18,7 @@ private:
     double yang;
     Inventory *inventory;
     int level;
-    Maps *currentMap;
+    Maps<std::string> *currentMap;
 
 public:
 
@@ -40,9 +40,9 @@ public:
 
     void IncrementLevel();
 
-    Maps *getCurrentMap();
+    Maps<std::string> *getCurrentMap();
 
-    void setCurrentMap(Maps *map);
+    void setCurrentMap(Maps<std::string> *map);
 
     void setSwordNull();
 

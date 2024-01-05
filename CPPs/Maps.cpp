@@ -3,14 +3,21 @@
 //
 #include "../Headers/Maps.h"
 
-Maps::Maps(std::string _name, int _levelReq) : name(std::move(_name)), levelReq(_levelReq) {}
+template<typename T>
+Maps<T>::Maps(T _name, int _levelReq) : name(std::move(_name)), levelReq(_levelReq) {}
 
-Maps::~Maps() = default;
+template<typename T>
+Maps<T>::~Maps() = default;
 
-int Maps::getLevelReq() const {
+template<typename T>
+int Maps<T>::getLevelReq() const {
     return this->levelReq;
 }
 
-std::string Maps::getName() {
+template<typename T>
+T Maps<T>::getName() const {
     return this->name;
 }
+
+
+template class Maps<std::string>;

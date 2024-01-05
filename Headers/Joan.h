@@ -7,7 +7,7 @@
 
 #include "BlackSmith.h"
 
-class Joan : public Maps {
+class Joan : public Maps <std::string>{
 private:
     Blacksmith *bs;
 public:

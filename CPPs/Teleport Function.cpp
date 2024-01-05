@@ -5,7 +5,7 @@
 #include "../Headers/Teleport Function.h"
 #include "../Headers/Correct Read Function.h"
 
-void TeleportFun(Player *player, std::vector<Maps *> maps) {
+void TeleportFun(Player *player, std::vector<Maps<std::string> *> maps) {
     int op;
     std::cout << "Enter the number of the Map where you want to teleport\n";
     for (int i = 0; i < 3; i++) {

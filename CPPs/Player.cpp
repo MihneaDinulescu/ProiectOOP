@@ -108,11 +108,11 @@ void Player::IncrementLevel() {
     this->level++;
 }
 
-Maps *Player::getCurrentMap() {
+Maps<std::string> *Player::getCurrentMap() {
     return this->currentMap;
 }
 
-void Player::setCurrentMap(Maps *map) {
+void Player::setCurrentMap(Maps<std::string> *map) {
     this->currentMap = map;
 }
 

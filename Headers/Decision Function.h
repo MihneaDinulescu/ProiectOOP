@@ -7,6 +7,6 @@
 
 #include "Player.h"
 
-void decisionFunction(Player *player, const std::vector<Maps *> &maps);
+void decisionFunction(Player *player, const std::vector<Maps<std::string> *> &maps);
 
 #endif //OOP_DECISION_FUNCTION_H

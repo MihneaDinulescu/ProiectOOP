@@ -46,7 +46,7 @@ GameManager& GameManager::operator=(const GameManager& other) {
     return *this;
 }
 
-void GameManager::addMap(Maps *map) {
+void GameManager::addMap(Maps<std::string> *map) {
     maps.push_back(map);
 }
 

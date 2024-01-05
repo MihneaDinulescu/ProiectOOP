@@ -7,6 +7,6 @@
 
 #include "Player.h"
 
-void TeleportFun(Player *player, std::vector<Maps *> maps);
+void TeleportFun(Player *player, std::vector<Maps<std::string> *> maps);
 
 #endif //OOP_TELEPORT_FUNCTION_H
