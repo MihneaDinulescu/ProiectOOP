@@ -3,6 +3,13 @@
 //
 #include "../Headers/Sword.h"
 
+/**
+ * @brief Implementation of the default constructor for the Sword class.
+ *
+ * Initializes a basic Sword object with predefined attributes such as name, damage,
+ * plus level, level requirement, shop price, stack size, and healing gain.
+ *
+ */
 Sword::Sword() {
     this->name = "Sword";
     this->givesHeal = false;
@@ -13,3 +20,4 @@ Sword::Sword() {
     this->stackSize = 1;
     this->healGain = 0;
 }
+

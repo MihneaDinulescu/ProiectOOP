@@ -3,6 +3,15 @@
 #include <string>
 #include "../Headers/Correct Read Function.h"
 
+/**
+ * @brief Implementation of the read function for integer values.
+ *
+ * Continuously reads user input from the standard input and validates it to be within the specified range.
+ *
+ * @param bottom The minimum value that the user can input.
+ * @param top The maximum value that the user can input.
+ * @return Returns the validated integer value within the specified range.
+ */
 int read(int bottom, int top) {
     while (true) {
         std::string input;
@@ -24,6 +33,15 @@ int read(int bottom, int top) {
     }
 }
 
+/**
+ * @brief Implementation of the read2 function for unsigned long integer values.
+ *
+ * Continuously reads user input from the standard input and validates it to be within the specified range.
+ *
+ * @param bottom The minimum value that the user can input.
+ * @param top The maximum value that the user can input.
+ * @return Returns the validated unsigned long integer value within the specified range.
+ */
 unsigned long read2(unsigned int bottom, unsigned long top) {
     while (true) {
         std::string input;

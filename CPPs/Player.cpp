@@ -10,12 +10,12 @@
 #include "../Headers/Shop.h"
 
 Player::Player() {
-    this->hp = 50; // era 50
+    this->hp = 50;
     this->damage = 1;
     this->inventory = new Inventory();
-    this->yang = 50; //era 50
+    this->yang = 50;
     this->sword = nullptr;
-    this->level = 1;  // level 1 de start
+    this->level = 1;
     this->currentMap = nullptr;
     this->xp = 0;
 }

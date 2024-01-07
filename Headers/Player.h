@@ -28,8 +28,6 @@ public:
 
     Player &operator=(const Player &other);
 
-    int getXp() const;
-
     void addXp(int _xp);
 
     void difXp(int _xp);

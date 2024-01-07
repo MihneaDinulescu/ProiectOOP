@@ -5,10 +5,27 @@
 #include "../Headers/BlackSmith.h"
 #include "../Headers/Correct Read Function.h"
 
+/**
+ * @brief Default constructor for the Blacksmith class.
+ *
+ * Initializes a new instance of the Blacksmith class with default values.
+ */
 Blacksmith::Blacksmith() = default;
 
+/**
+ * @brief Destructor for the Blacksmith class.
+ *
+ * Handles the cleanup for the Blacksmith instance.
+ */
 Blacksmith::~Blacksmith() = default;
 
+/**
+ * @brief Upgrades the PlusLevel of a given sword for a player.
+ *
+ * @param sword The sword item to be upgraded.
+ * @param player The player who owns the sword.
+ * @return True if the upgrade is successful, otherwise false.
+ */
 bool Blacksmith::UpgradePlusLevel(Item *sword, Player *player) {
     int chance = rand() % 101;
     switch (sword->getPlusLevel()) {
@@ -158,13 +175,19 @@ bool Blacksmith::UpgradePlusLevel(Item *sword, Player *player) {
         }
         default: {
             std::cout << "Unexpected PlusLevel value!\n";
-            return false;  // You may want to return a default value or handle this case appropriately
+            return false;
         }
 
     }
     return false;
 }
 
+/**
+ * @brief Displays the chances of success for upgrading PlusLevels.
+ *
+ * This function provides the user with the probabilities of successfully upgrading
+ * a sword's PlusLevel based on its current level.
+ */
 void Blacksmith::displayChances() {
     std::cout << "Increasing from +0 Plus level to +1 (90% chances of success)\n";
     std::cout << "Increasing from +1 Plus level to +2 (85% chances of success)\n";
@@ -177,6 +200,14 @@ void Blacksmith::displayChances() {
     std::cout << "Increasing from +8 Plus level to +9 (30% chances of success)\n";
 }
 
+/**
+ * @brief Interactive function allowing a player to interact with the blacksmith.
+ *
+ * This function presents the user with an interactive menu to either view upgrade chances,
+ * upgrade their sword, display their sword's PlusLevel, or exit the interaction.
+ *
+ * @param player The player object interacting with the blacksmith.
+ */
 void Blacksmith::BlacksmithFunction(Player *player) {
     int op;
     while (true) {

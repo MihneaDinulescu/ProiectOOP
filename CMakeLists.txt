@@ -164,6 +164,13 @@ add_executable(${PROJECT_NAME} main.cpp
         Headers/OrkFactory.h
         Headers/DarkFanaticFactory.h
         CPPs/MonsterFactory.cpp
+        CPPs/BoarFactory.cpp
+        CPPs/DarkFanaticFactory.cpp
+        CPPs/OrkFactory.cpp
+        CPPs/SoldierFactory.cpp
+        CPPs/TigerFactory.cpp
+        CPPs/WildDogFactory.cpp
+        CPPs/WolfFactory.cpp
 )
 
 ###############################################################################

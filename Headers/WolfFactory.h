@@ -8,11 +8,19 @@
 #include "MonsterFactory.h"
 #include "Wolf.h"
 
+/**
+ * @brief Concrete derived class representing a Wolf Factory.
+ *
+ * This class inherits from the MonsterFactory and provides an implementation to create Wolf monsters.
+ */
 class WolfFactory : public MonsterFactory {
 public:
-    Monsters* createMonster() override {
-        return new Wolf();
-    }
+    /**
+     * @brief Implementation of the createMonster method to produce a Wolf monster.
+     *
+     * @return Returns a pointer to a newly created Wolf monster object.
+     */
+    Monsters* createMonster() override;
 };
 
 #endif //OOP_WOLFFACTORY_H
