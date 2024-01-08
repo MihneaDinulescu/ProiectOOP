@@ -9,6 +9,12 @@
 #include "../Headers/Joan.h"
 #include "../Headers/Shop.h"
 
+/**
+ * @brief Default constructor for the Player class.
+ *
+ * Initializes a Player object with default values for health points (hp), damage,
+ * inventory, currency (yang), equipped sword, level, current map, and experience points (xp).
+ */
 Player::Player() {
     this->hp = 50;
     this->damage = 1;
@@ -20,67 +26,84 @@ Player::Player() {
     this->xp = 0;
 }
 
+/**
+ * @brief Copy constructor for the Player class.
+ *
+ * Creates a deep copy of another Player object, including its attributes such as hp, damage,
+ * experience points (xp), currency (yang), equipped sword, level, inventory, and current map.
+ *
+ * @param other The Player object to be copied.
+ */
 Player::Player(const Player &other) {
-
     hp = other.hp;
     damage = other.damage;
     xp = other.xp;
     yang = other.yang;
     level = other.level;
 
+    // Copy the sword item if it exists in the other Player object.
     if (other.sword) {
         sword = new Item(*other.sword);
     } else {
         sword = nullptr;
     }
 
-
+    // Copy the inventory if it exists in the other Player object.
     if (other.inventory) {
         inventory = new Inventory(*other.inventory);
     } else {
         inventory = nullptr;
     }
 
-
+    // Copy the current map if it exists in the other Player object.
     if (other.currentMap) {
-        currentMap = new Maps(*other.currentMap);
+        currentMap = new Maps<std::string>(*other.currentMap);
     } else {
         currentMap = nullptr;
     }
 }
 
-
+/**
+ * @brief Overloaded assignment operator for the Player class.
+ *
+ * Assigns the attributes of another Player object to this Player object by creating
+ * a deep copy of its attributes such as hp, damage, experience points (xp), currency (yang),
+ * equipped sword, level, inventory, and current map.
+ *
+ * @param other The Player object from which data will be assigned.
+ * @return A reference to this Player object after assignment.
+ */
 Player& Player::operator=(const Player &other) {
     if (this != &other) {
-
+        // Clear existing dynamic memory allocations.
         delete sword;
         delete inventory;
         delete currentMap;
 
-
+        // Assign attributes from the other Player object.
         hp = other.hp;
         damage = other.damage;
         xp = other.xp;
         yang = other.yang;
         level = other.level;
 
-
+        // Copy the sword item if it exists in the other Player object.
         if (other.sword) {
             sword = new Item(*other.sword);
         } else {
             sword = nullptr;
         }
 
-
+        // Copy the inventory if it exists in the other Player object.
         if (other.inventory) {
             inventory = new Inventory(*other.inventory);
         } else {
             inventory = nullptr;
         }
 
-
+        // Copy the current map if it exists in the other Player object.
         if (other.currentMap) {
-            currentMap = new Maps(*other.currentMap);
+            currentMap = new Maps<std::string>(*other.currentMap);
         } else {
             currentMap = nullptr;
         }
@@ -88,81 +111,169 @@ Player& Player::operator=(const Player &other) {
     return *this;
 }
 
+/**
+ * @brief Increases the experience points (xp) of the player by a specified amount.
+ *
+ * @param _xp Amount of experience points to be added.
+ */
 void Player::addXp(int _xp) {
     this->xp += _xp;
 }
 
+/**
+ * @brief Decreases the experience points (xp) of the player by a specified amount.
+ *
+ * @param _xp Amount of experience points to be subtracted.
+ */
 void Player::difXp(int _xp) {
     this->xp -= _xp;
 }
 
+/**
+ * @brief Retrieves the sword currently equipped by the player.
+ *
+ * @return A pointer to the Item object representing the equipped sword.
+ */
 Item *Player::getSword() {
     return this->sword;
 }
 
+/**
+ * @brief Retrieves the current level of the player.
+ *
+ * @return The level of the player.
+ */
 int Player::getLevel() const {
     return this->level;
 }
 
+/**
+ * @brief Increments the level of the player by one.
+ */
 void Player::IncrementLevel() {
     this->level++;
 }
 
+/**
+ * @brief Retrieves the current map where the player is located.
+ *
+ * @return A pointer to the Maps object representing the current map.
+ */
 Maps<std::string> *Player::getCurrentMap() {
     return this->currentMap;
 }
 
+/**
+ * @brief Sets the current map for the player.
+ *
+ * @param map Pointer to the Maps object representing the map to be set.
+ */
 void Player::setCurrentMap(Maps<std::string> *map) {
     this->currentMap = map;
 }
 
+/**
+ * @brief Sets the equipped sword of the player to nullptr, indicating no sword is equipped.
+ */
 void Player::setSwordNull() {
     this->sword = nullptr;
 }
 
+/**
+ * @brief Sets a specific sword item as the equipped sword for the player.
+ *
+ * @param sw Pointer to the Item object representing the sword to be equipped.
+ */
 void Player::setSword(Item *sw) {
     this->sword = sw;
 }
 
+/**
+ * @brief Increases the health points (hp) of the player by a specified amount.
+ *
+ * @param add Amount of health points to be added.
+ */
 void Player::healPlayer(int add) {
     this->hp += add;
 }
 
-void Player::difYang(double sum) {
-    this->yang = this->yang - sum;
+/**
+ * @brief Decreases the currency (yang) of the player by a specified amount.
+ *
+ * @param dif Amount of currency to be subtracted.
+ */
+void Player::difYang(double dif) {
+    this->yang -= dif;
 }
 
+/**
+ * @brief Increases the currency (yang) of the player by a specified amount.
+ *
+ * @param sum Amount of currency to be added.
+ */
 void Player::sumYang(double sum) {
-    this->yang = this->yang + sum;
+    this->yang += sum;
 }
 
+/**
+ * @brief Sets the health points (hp) of the player to a specified value.
+ *
+ * @param HP Value to set the health points to.
+ */
 void Player::setHp(int HP) {
     this->hp = HP;
 }
 
+/**
+ * @brief Checks if the player is dead based on their health points (hp).
+ *
+ * @return True if the player is dead, otherwise false.
+ */
 bool Player::isDead() const {
-    if (this->hp <= 0) return (true);
-    return (false);
+    return (this->hp <= 0);
 }
 
+/**
+ * @brief Retrieves the inventory of the player.
+ *
+ * @return Pointer to the Inventory object representing the player's inventory.
+ */
 Inventory *Player::getInventory() {
     return this->inventory;
 }
 
+/**
+ * @brief Ends the game session for the player by freeing all inventory items and deleting the inventory.
+ */
 void Player::endGame() {
     this->inventory->freeEverything();
     delete this->inventory;
 }
 
+/**
+ * @brief Retrieves the damage value of the player.
+ *
+ * @return The damage value of the player.
+ */
 int Player::getDamage() const {
-    return (this->damage);
+    return this->damage;
 }
 
+/**
+ * @brief Reduces the health points (hp) of the player by a specified amount.
+ *
+ * @param tkdmg Amount of damage to be taken by the player.
+ */
 void Player::takeDamage(int tkdmg) {
-    this->hp = this->hp - tkdmg;
+    this->hp -= tkdmg;
 }
 
-
+/**
+ * @brief Displays the health bar of the player based on their current health points (hp).
+ *
+ * This function visually represents the player's health using a series of '=' characters,
+ * where each '=' represents a single health point. The total health points are also displayed as a percentage.
+ */
 void Player::displayHp() {
     std::cout << "HEALTH BAR : ";
     for (int i = 0; i < this->hp; i++) {
@@ -171,6 +282,14 @@ void Player::displayHp() {
     std::cout << "   " << this->hp << "%\n";
 }
 
+/**
+ * @brief Displays available healing items in the player's inventory.
+ *
+ * This function iterates over the player's inventory to identify and display items that can heal the player.
+ * Each healing item's quantity and name are presented if they are available in the inventory.
+ *
+ * @return The number of available healing items in the inventory.
+ */
 int Player::displayHpResource() {
     std::cout << "Heal items available from your inventory:\n";
     int counter = 0;
@@ -189,6 +308,14 @@ int Player::displayHpResource() {
     return counter;
 }
 
+/**
+ * @brief Allows the player to regenerate their health points (hp) using available health potions.
+ *
+ * This function prompts the player to select a health potion from their inventory to use for healing.
+ * If the player's health is less than the maximum (50 in this case), the selected health potion
+ * is used to restore the player's health. The function also provides feedback messages to inform
+ * the player about their healing status.
+ */
 void Player::regenHp() {
     std::cout << "You need to use only health potions\n";
     int cnt = displayHpResource();
@@ -201,7 +328,6 @@ void Player::regenHp() {
     nrop = read(1, 30);
     int nr = 0;
     for (int i = 0; i < this->inventory->getInventorySize(); i++) {
-
         if (this->inventory->getInventorySpace().at(i)->getCurentItem()->getGivesHeal() &&
             this->inventory->getInventorySpace().at(i)->getQuantity() > 0)
             nr++;
@@ -218,6 +344,16 @@ void Player::regenHp() {
     std::cout << "Invalid option!\n";
 }
 
+/**
+ * @brief Provides an interface for the player to manage and view their health-related functionalities.
+ *
+ * This function presents the player with a menu that allows them to:
+ * 1. View their current health points.
+ * 2. Display available healing resources in their inventory.
+ * 3. Regenerate their health by using available health potions.
+ * 4. Exit the health management system.
+ * The function handles the selected option accordingly and loops until the player chooses to exit.
+ */
 void Player::healthFunction() {
     while (true) {
         int op;
@@ -244,11 +380,19 @@ void Player::healthFunction() {
     }
 }
 
+/**
+ * @brief Allows the player to equip a sword from their inventory.
+ *
+ * This function presents the player with a list of swords available in their inventory
+ * and prompts them to select a sword to equip. Once a valid sword is selected, it becomes
+ * the player's active sword for combat.
+ * The function provides feedback messages based on the player's action.
+ */
 void Player::equipSword() {
     int op;
     int x;
     if (this->sword != (nullptr)) {
-        std::cout << "You already have equiped a sword\n";
+        std::cout << "You already have equipped a sword\n";
         return;
     }
     op = this->inventory->displaySwords();
@@ -265,25 +409,35 @@ void Player::equipSword() {
             counter++;
         if (counter == x) {
             this->setSword(this->inventory->getInventorySpace().at(i)->getCurentItem());
-            std::cout << "You have successfully equiped your sword!\n";
+            std::cout << "You have successfully equipped your sword!\n";
             return;
         }
-
     }
     std::cout << "Invalid option!\n";
-
 }
 
+/**
+ * @brief Allows the player to unequip their currently equipped sword.
+ *
+ * This function allows the player to remove the currently equipped sword, if any,
+ * making them unarmed. Upon successful unequipping, a feedback message is displayed.
+ */
 void Player::unequipSword() {
     if (this->sword == (nullptr)) {
-        std::cout << "You don't have any sword equiped\n";
+        std::cout << "You don't have any sword equipped\n";
         return;
     }
     this->setSwordNull();
-    std::cout << "You have successfully unequiped your sword!\n";
+    std::cout << "You have successfully unequipped your sword!\n";
 }
 
-
+/**
+ * @brief Automatically restacks health potions in the player's inventory.
+ *
+ * This function automates the process of restacking health potions in the inventory
+ * by combining stacks of similar potions. If restacking is successful, the player is
+ * informed; otherwise, they are notified that restacking is not possible due to certain conditions.
+ */
 void Player::restack() {
     int nr = 0;
     for (int i = 0; i < this->inventory->getInventorySize(); i++) {
@@ -307,9 +461,17 @@ void Player::restack() {
     if (nr)
         std::cout << "You have successfully restacked your Health Potions!\n";
     else
-        std::cout << "You do not have any Health Potions or your Health Potions are already stacked normal!\n";
+        std::cout << "You do not have any Health Potions or your Health Potions are already stacked normally!\n";
 }
 
+/**
+ * @brief Provides an interactive menu for level-related functionalities of the player.
+ *
+ * This function presents a menu to the player allowing them to view their current level,
+ * XP, and the option to level up if sufficient XP is available. The player's level and
+ * XP details are displayed accordingly. If the player attempts to level up without sufficient
+ * XP or reaches the maximum level, appropriate messages are displayed.
+ */
 void Player::levelFunction() {
     while (true) {
         int op;
@@ -345,6 +507,13 @@ void Player::levelFunction() {
     }
 }
 
+/**
+ * @brief Provides an interactive menu for inventory-related functionalities of the player.
+ *
+ * This function displays a menu to the player, offering options to view their inventory,
+ * current yang amount, equip or unequip a sword, restack health potions, or exit the menu.
+ * Depending on the chosen option, the corresponding functionality is executed.
+ */
 void Player::inventoryFunction() {
     while (true) {
         int op;
@@ -373,10 +542,31 @@ void Player::inventoryFunction() {
                 std::cout << "Invalid Option!\n";
         }
     }
-
 }
 
-
+/**
+ * @brief Allows the player to purchase items from the shop.
+ *
+ * This function presents the player with a list of items available in the shop and prompts
+ * them to select an item by its corresponding number. Depending on the choice made, various
+ * validations are performed including checking the player's current yang (currency) balance
+ * and level requirement. If the player meets all criteria and has sufficient yang, the item
+ * is added to their inventory. Additionally, specific item types are created and populated
+ * into inventory slots accordingly. This function is designed to handle the purchase of
+ * various items such as swords and health potions.
+ *
+ * The items available for purchase are determined based on the Shop's inventory, and each
+ * item has its price and level requirement. If the player's inventory is full or if they do
+ * not meet the level requirement, appropriate messages are displayed, and the purchase is
+ * declined. Upon successful purchase, the player's yang is deducted, and the item is added
+ * to their inventory. Furthermore, if an item of the same type already exists in the
+ * inventory, the quantity of that item is incremented instead of creating a new inventory slot.
+ *
+ * @note This function utilizes specific classes and their respective member functions such
+ * as Shop's displayItems() to show available items and various getter functions to retrieve
+ * item details (e.g., price, level requirement). It also interacts with the Player's
+ * inventory and manages item additions and validations.
+ */
 void Player::buyItems() {
     Shop sh;
     sh.displayItems();
@@ -533,6 +723,21 @@ void Player::buyItems() {
 
 }
 
+/**
+ * @brief Allows the player to sell items from their inventory.
+ *
+ * This function first displays the player's inventory and then prompts the player
+ * to select an item they wish to sell. Upon selection, the player receives 95% of
+ * the original shop price for the item sold. If the sold item is currently equipped
+ * as the player's sword, the sword is unequipped. After the transaction, the item
+ * quantity in the inventory is decremented by one. The function provides feedback
+ * on successful or unsuccessful sales, including notifications if an invalid item
+ * slot is selected or if the inventory does not contain the item to be sold.
+ *
+ * @note The player's yang (currency) increases by 95% of the item's original shop price
+ * when an item is sold. The item's quantity in the inventory is reduced by one after
+ * the sale, and if the sold item was equipped as a sword, it gets unequipped.
+ */
 void Player::sellItems() {
     this->inventory->displayInventory();
     std::cout << "You will receive 95% from the original shop price of the item when you sell something\n";
@@ -558,6 +763,22 @@ void Player::sellItems() {
 
 }
 
+/**
+ * @brief Provides a menu-driven interface for interacting with the shop functionalities.
+ *
+ * This function presents the player with a series of options to interact with the shop.
+ * The options include displaying available items, viewing details about specific items,
+ * purchasing items, selling items, or exiting the shop. Based on the selected option,
+ * corresponding functionalities such as displaying items, providing item details, buying
+ * items, or selling items are executed. The function ensures a seamless interaction
+ * between the player and the shop, allowing for a straightforward shopping experience
+ * within the game.
+ *
+ * @note This function integrates various functionalities like displaying items, viewing
+ * item details, buying items using the buyItems() function, and selling items using the
+ * sellItems() function. It offers a comprehensive interface for players to manage their
+ * inventory and interact with the shop.
+ */
 void Player::shopFunction() {
     Shop sh;
     while (true) {
@@ -586,6 +807,21 @@ void Player::shopFunction() {
     }
 }
 
+/**
+ * @brief Manages the player's actions and interactions within a map environment.
+ *
+ * This function provides a menu-driven interface for players to interact with the map.
+ * Players have the option to engage in fights, leave the map, or, in specific map scenarios
+ * (e.g., "Joan" map), upgrade their equipped sword's plus level at a blacksmith. Depending
+ * on the selected options and map conditions, the function allows players to engage in
+ * fights, exit the map, or upgrade their sword at a blacksmith, ensuring dynamic gameplay
+ * and map-specific interactions.
+ *
+ * @note This function facilitates interactions within different map environments, such as
+ * initiating fights using the Fight class, exiting the current map, or upgrading the sword
+ * plus level at a blacksmith in specific scenarios. It ensures that players have varied
+ * interactions and engagements while exploring different maps within the game.
+ */
 void Player::mapFunction() {
     Fight *currentFight;
     int op;

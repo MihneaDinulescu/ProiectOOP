@@ -1,0 +1,17 @@
+Game Description:
+The game is an adventure where players navigate through various maps, engage in fights, manage an inventory, interact with shops, and upgrade equipment.
+The player takes on the role of a character who progresses through different levels, acquires weapons, battles monsters in designated areas like the "Joan" map and many others, and manages resources such as health potions and currency ("yang").
+The game emphasizes strategic decision-making, inventory management, combat skills, and character progression.
+
+Tips/Rules:
+Inventory Management: Keep an eye on your inventory space. Ensure you have sufficient space to acquire new items, especially during battles and shop interactions. Utilize the "restack" function to efficiently manage health potions.
+
+Combat Strategy: Before entering fights, ensure you have appropriate weapons equipped. Consider upgrading your sword at the Blacksmith, especially if you're in the "Joan" map. Utilize the "fight" option wisely, as you cannot escape until all monsters are eliminated.
+
+Resource Management: Monitor your "yang" (currency) and experience points (XP) levels. Prioritize purchasing items based on your current level and available funds. Remember, you can sell items for 95% of their original shop price, offering a strategy for resource optimization.
+
+Level Progression: Focus on leveling up by accumulating XP. Engage in battles, complete quests, and interact with NPCs (if applicable) to earn XP and progress through levels. Keep track of your current level and XP requirements for the next level-up.
+
+Shop Interactions: When interacting with shops, carefully evaluate item details, prices, and level requirements. Prioritize purchasing items that align with your current level, weapon preferences, and available resources.
+
+Health Management: Monitor your health bar during battles and explorations. Utilize health potions strategically to replenish health and maximize combat efficiency. Remember, once you're in a fight, you can't escape until all monsters are defeated.
