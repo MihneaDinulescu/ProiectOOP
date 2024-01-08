@@ -92,7 +92,6 @@ void GameManager::setPlayer(Player *p) {
  */
 void GameManager::executeGameLogic() {
     if (player && !maps.empty()) {
-        srand((unsigned int) time(nullptr));  // Seed the random number generator.
         decisionFunction(player, maps);       // Calling decisionFunction
     } else {
         std::cout << "Unable to execute game logic due to missing components." << std::endl;

@@ -24,6 +24,9 @@
  * @return An integer value (0) indicating successful execution of the program.
  */
 int main() {
+
+    srand((unsigned int) time(nullptr));  // Seed the random number generator.
+
     // Initialize the ConcreteGameManagerBuilder instance.
     GameManagerBuilder *builder = new ConcreteGameManagerBuilder();
 

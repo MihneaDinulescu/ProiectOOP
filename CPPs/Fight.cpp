@@ -27,50 +27,52 @@
  * Note: Proper cleanup is ensured by deleting the factory object after monster creation to avoid memory leaks.
  */
 void Fight::generateMobs() {
-    MonsterFactory* factory = nullptr; /**< Pointer to MonsterFactory for creating monster objects. */
+    MonsterFactory *factory = nullptr; /**< Pointer to MonsterFactory for creating monster objects. */
+    int numberOfMobs = rand() % 3 + 1;
+    for (int i = 0; i < numberOfMobs; i++) {
+        // Check the current map associated with the player and generate monsters accordingly.
+        if (fightPlayer->getCurrentMap()->getName() == "Joan") {
+            int randmob = rand() % 3 + 1; // Randomly select between three monster types.
+            switch (randmob) {
+                case 1:
+                    factory = new WildDogFactory();
+                    break;
+                case 2:
+                    factory = new WolfFactory();
+                    break;
+                case 3:
+                    factory = new BoarFactory();
+                    break;
+            }
+        } else if (fightPlayer->getCurrentMap()->getName() == "Bakra") {
+            int randmob = rand() % 2 + 1; // Randomly select between two monster types.
+            switch (randmob) {
+                case 1:
+                    factory = new SoldierFactory();
+                    break;
+                case 2:
+                    factory = new TigerFactory();
+                    break;
+            }
+        } else if (fightPlayer->getCurrentMap()->getName() == "Seungryong") {
+            int randmob = rand() % 2 + 1; // Randomly select between two monster types.
+            switch (randmob) {
+                case 1:
+                    factory = new OrkFactory();
+                    break;
+                case 2:
+                    factory = new DarkFanaticFactory();
+                    break;
+            }
+        }
 
-    // Check the current map associated with the player and generate monsters accordingly.
-    if (fightPlayer->getCurrentMap()->getName() == "Joan") {
-        int randmob = rand() % 3 + 1; // Randomly select between three monster types.
-        switch (randmob) {
-            case 1:
-                factory = new WildDogFactory();
-                break;
-            case 2:
-                factory = new WolfFactory();
-                break;
-            case 3:
-                factory = new BoarFactory();
-                break;
+        // Create a monster using the selected factory and add it to the fightMobsVector.
+        if (factory) {
+            fightMobsVector.push_back(factory->createMonster());
+            delete factory; // Release memory allocated for the factory.
+        } else {
+            std::cout << "No matching factory found for the current map." << std::endl;
         }
-    } else if (fightPlayer->getCurrentMap()->getName() == "Bakra") {
-        int randmob = rand() % 2 + 1; // Randomly select between two monster types.
-        switch (randmob) {
-            case 1:
-                factory = new SoldierFactory();
-                break;
-            case 2:
-                factory = new TigerFactory();
-                break;
-        }
-    } else if (fightPlayer->getCurrentMap()->getName() == "Seungryong") {
-        int randmob = rand() % 2 + 1; // Randomly select between two monster types.
-        switch (randmob) {
-            case 1:
-                factory = new OrkFactory();
-                break;
-            case 2:
-                factory = new DarkFanaticFactory();
-                break;
-        }
-    }
-
-    // Create a monster using the selected factory and add it to the fightMobsVector.
-    if (factory) {
-        fightMobsVector.push_back(factory->createMonster());
-        delete factory; // Release memory allocated for the factory.
-    } else {
-        std::cout << "No matching factory found for the current map." << std::endl;
     }
 }
 
